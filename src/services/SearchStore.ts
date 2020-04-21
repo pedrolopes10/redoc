@@ -3,13 +3,12 @@ import { IMenuItem } from './MenuStore';
 import { OperationModel } from './models';
 
 import Worker from './SearchWorker.worker';
-
 function getWorker() {
   let worker: new () => Worker;
   if (IS_BROWSER) {
     try {
       // tslint:disable-next-line
-      worker = require('workerize-loader?inline&fallback=false!./SearchWorker.worker');
+      worker = require('workerize-loader?fallback=false!./SearchWorker.worker');
     } catch (e) {
       worker = require('./SearchWorker.worker').default;
     }

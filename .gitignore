@@ -34,4 +34,8 @@ cli/index.js
 /coverage
 .ghpages-tmp
 stats.json
-yarn.lock
+/package-lock.json
+/.idea/
+
+# npmrc for local npm
+.npmrc

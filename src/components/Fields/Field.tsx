@@ -10,9 +10,10 @@ import {
   PropertyCellWithInner,
   PropertyDetailsCell,
   PropertyNameCell,
+  WrappedShelfIcon,
 } from '../../common-elements/fields-layout';
 
-import { ShelfIcon } from '../../common-elements/';
+import { ShelfIcon, TextField } from '../../common-elements/';
 
 import { FieldModel } from '../../services/models';
 import { Schema, SchemaOptions } from '../Schema/Schema';
@@ -37,6 +38,12 @@ export class Field extends React.Component<FieldProps> {
       this.props.field.toggle();
     }
   };
+
+  onFieldChange = e => {
+    console.log('Textfield value is ' + e.target.placeholder + ' - ' + e.target.value);
+    this.props.field.setValue(e.target.value);
+  };
+
   render() {
     const { className, field, isLast, expandByDefault } = this.props;
     const { name, deprecated, required, kind } = field;
@@ -53,16 +60,18 @@ export class Field extends React.Component<FieldProps> {
       >
         <PropertyBullet />
         {name}
-        <ShelfIcon direction={expanded ? 'down' : 'right'} />
+        <WrappedShelfIcon>
+          <ShelfIcon direction={expanded ? 'down' : 'right'} />
+        </WrappedShelfIcon>
         {required && <RequiredLabel> required </RequiredLabel>}
       </ClickablePropertyNameCell>
     ) : (
-      <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
-        <PropertyBullet />
-        {name}
-        {required && <RequiredLabel> required </RequiredLabel>}
-      </PropertyNameCell>
-    );
+        <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
+          <PropertyBullet />
+          {name}
+          {required && <RequiredLabel> required </RequiredLabel>}
+        </PropertyNameCell>
+      );
 
     return (
       <>
@@ -71,6 +80,9 @@ export class Field extends React.Component<FieldProps> {
           <PropertyDetailsCell>
             <FieldDetails {...this.props} />
           </PropertyDetailsCell>
+          {field && field.in === 'path' &&
+            <td><TextField placeholder={field.name} onChange={this.onFieldChange} /></td>
+          }
         </tr>
         {expanded && withSubSchema && (
           <tr key={field.name + 'inner'}>

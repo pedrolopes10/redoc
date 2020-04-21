@@ -9,6 +9,8 @@ export interface RedocRawOptions {
   theme?: ThemeInterface;
   scrollYOffset?: number | string | (() => number);
   hideHostname?: boolean | string;
+  enableConsole?: boolean;
+  additionalHeaders?: object;
   expandResponses?: string | 'all';
   requiredPropsFirst?: boolean | string;
   sortPropsAlphabetically?: boolean | string;
@@ -27,6 +29,11 @@ export interface RedocRawOptions {
   hideSchemaTitles?: boolean | string;
   payloadSampleIdx?: number;
   expandSingleSchemaField?: boolean | string;
+
+  providedByName?: string;
+  providedByUri?: string;
+  queryParamPrefix?: string;
+  queryParamSuffix?: string;
 
   unstable_ignoreMimeParameters?: boolean;
 
@@ -168,8 +175,13 @@ export class RedocNormalizedOptions {
   enumSkipQuotes: boolean;
   hideSchemaTitles: boolean;
   payloadSampleIdx: number;
+  enableConsole: boolean;
+  additionalHeaders: object;
+  providedByName: string;
+  providedByUri: string;
+  queryParamPrefix: string;
+  queryParamSuffix: string;
   expandSingleSchemaField: boolean;
-
   /* tslint:disable-next-line */
   unstable_ignoreMimeParameters: boolean;
   allowedMdComponents: Dict<MDXComponentMeta>;
@@ -221,7 +233,13 @@ export class RedocNormalizedOptions {
     this.enumSkipQuotes = argValueToBoolean(raw.enumSkipQuotes);
     this.hideSchemaTitles = argValueToBoolean(raw.hideSchemaTitles);
     this.payloadSampleIdx = RedocNormalizedOptions.normalizePayloadSampleIdx(raw.payloadSampleIdx);
-    this.expandSingleSchemaField = argValueToBoolean(raw.expandSingleSchemaField);
+    this.expandSingleSchemaField = argValueToBoolean(raw.expandSingleSchemaField);    
+    this.enableConsole = argValueToBoolean(raw.enableConsole);
+    this.additionalHeaders = raw.additionalHeaders || {};
+    this.providedByName = raw.providedByName || 'Documentation Powered by ReDoc';
+    this.providedByUri = raw.providedByUri || 'https://github.com/Rebilly/ReDoc';
+    this.queryParamPrefix = raw.queryParamPrefix || '{';
+    this.queryParamSuffix = raw.queryParamSuffix || '}';
 
     // eslint-disable-next-line @typescript-eslint/camelcase
     this.unstable_ignoreMimeParameters = argValueToBoolean(raw.unstable_ignoreMimeParameters);
