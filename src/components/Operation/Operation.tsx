@@ -6,6 +6,7 @@ import { Badge, DarkRightPanel, H2, MiddlePanel, Row } from '../../common-elemen
 import { OptionsContext } from '../OptionsProvider';
 import { OperationModel as OperationType, SecuritySchemesModel } from '../../services/models';
 
+import { CallbacksList } from '../Callbacks';
 
 import { ShareLink } from '../../common-elements/linkify';
 import { Endpoint } from '../Endpoint/Endpoint';
@@ -21,7 +22,6 @@ import {SwitchBox} from '../../common-elements/SwitchBox';
 
 
 import styled from '../../styled-components';
-import { Extensions } from '../Fields/Extensions';
 import { ConsoleViewer } from '../Console/ConsoleViewer';
 const OperationRow = styled(Row)`
   backface-visibility: hidden;

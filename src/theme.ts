@@ -126,6 +126,10 @@ const defaultTheme: ThemeInterface = {
       hover: ({ typography }) => lighten(0.2, typography.links.color),
     },
   },
+  codeSample: {
+    backgroundColor: ({ rightPanel }) => darken(0.1, rightPanel.backgroundColor),
+    textColor: ({ rightPanel }) => rightPanel.textColor,
+  },
   sidebar: {
     width: '260px',
     backgroundColor: '#fafafa',
@@ -340,7 +344,10 @@ export interface ResolvedThemeInterface {
     backgroundColor: string;
     textColor: string;
   };
-
+  codeSample: {
+    backgroundColor: string;
+    textColor: string;
+  };
   extensionsHook?: (name: string, props: any) => string;
   styledPre: {
     maxHeight: string;
