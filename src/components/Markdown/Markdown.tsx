@@ -18,8 +18,8 @@ export type MarkdownProps = BaseMarkdownProps &
   StylingMarkdownProps & {
     source: string;
     className?: string;
-   'data-role'?: string;
-   onSelectUrl?: any;
+    'data-role'?: string;
+    onSelectUrl?: any;
   };
 
 export class Markdown extends React.Component<MarkdownProps> {
@@ -30,15 +30,15 @@ export class Markdown extends React.Component<MarkdownProps> {
     const { source, inline, compact, className, 'data-role': dataRole } = this.props;
     const renderer = new MarkdownRenderer();
     return (
-<MarkWrapper onClick={this.handleClick}>
-      <SanitizedMarkdownHTML
-        html={renderer.renderMd(source)}
-        inline={inline}
-        compact={compact}
-        className={className}
-        data-role={dataRole}
-      />
-</MarkWrapper>
+      <MarkWrapper onClick={this.handleClick}>
+        <SanitizedMarkdownHTML
+          html={renderer.renderMd(source)}
+          inline={inline}
+          compact={compact}
+          className={className}
+          data-role={dataRole}
+        />
+      </MarkWrapper>
     );
   }
 }

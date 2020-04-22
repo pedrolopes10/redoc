@@ -47,7 +47,9 @@ export class ContentItem extends React.Component<ContentItemProps> {
         content = <SectionItem {...this.props} />;
         break;
       case 'operation':
-        content = <Operation securitySchemes={store.spec.securitySchemes} operation={item as any} />;
+        content = (
+          <Operation securitySchemes={store.spec.securitySchemes} operation={item as any} />
+        );
         break;
       default:
         content = <SectionItem {...this.props} />;

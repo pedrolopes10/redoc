@@ -31,7 +31,12 @@ export class CallbackDetails extends React.Component<CallbackDetailsProps> {
             {externalDocs && <ExternalDocumentation externalDocs={externalDocs} />}
           </Description>
         )}
-        <Endpoint operation={this.props.operation} inverted={true} compact={true} handleUrl={() => false} />
+        <Endpoint
+          operation={this.props.operation}
+          inverted={true}
+          compact={true}
+          handleUrl={() => false}
+        />
         <Extensions extensions={operation.extensions} />
         <SecurityRequirements securities={operation.security} />
         <Parameters parameters={operation.parameters} body={operation.requestBody} />

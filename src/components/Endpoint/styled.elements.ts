@@ -14,9 +14,9 @@ export const OperationEndpointWrap = styled.div`
     text-align: center;
     margin-bottom: 10px;
     border-radius: 4px;
-  };
+  }
   .hideToolTip {
-    visibility:hidden;
+    visibility: hidden;
     padding: 3px;
     position: initial;
     width: 53px;
@@ -91,12 +91,12 @@ export const ServerItem = styled.div`
   display: flex;
   flex-wrap: nowrap;
   &.selected {
-      background-color: #3c7173;
+    background-color: #3c7173;
   }
   div:first-child {
-      width: 20%;
-      padding-top: 5px;
-      }
+    width: 20%;
+    padding-top: 5px;
+  }
 `;
 
 export const ServerUrl = styled.div`
@@ -109,5 +109,5 @@ export const ServerUrl = styled.div`
   color: #00ff1c;
   > span {
     color: white;
-  };
+  }
 `;

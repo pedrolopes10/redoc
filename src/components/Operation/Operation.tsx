@@ -17,9 +17,8 @@ import { Parameters } from '../Parameters/Parameters';
 import { RequestSamples } from '../RequestSamples/RequestSamples';
 import { ResponsesList } from '../Responses/ResponsesList';
 import { ResponseSamples } from '../ResponseSamples/ResponseSamples';
-import {SecurityRequirements } from '../SecurityRequirement/SecurityRequirement';
-import {SwitchBox} from '../../common-elements/SwitchBox';
-
+import { SecurityRequirements } from '../SecurityRequirement/SecurityRequirement';
+import { SwitchBox } from '../../common-elements/SwitchBox';
 
 import styled from '../../styled-components';
 import { ConsoleViewer } from '../Console/ConsoleViewer';
@@ -45,7 +44,6 @@ export interface OperationState {
 
 @observer
 export class Operation extends React.Component<OperationProps, OperationState> {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -58,7 +56,7 @@ export class Operation extends React.Component<OperationProps, OperationState> {
     this.setState({
       executeMode: !this.state.executeMode,
     });
-  }
+  };
 
   render() {
     const { operation, securitySchemes } = this.props;
@@ -76,14 +74,16 @@ export class Operation extends React.Component<OperationProps, OperationState> {
                 <ShareLink to={operation.id} />
                 {summary} {deprecated && <Badge type="warning"> Deprecated </Badge>}
               </H2>
-              {options.enableConsole &&
+              {options.enableConsole && (
                 <SwitchBox
                   onClick={this.onConsoleClick}
                   checked={this.state.executeMode}
                   label="Try it out!"
                 />
-              }
-              {options.pathInMiddlePanel && <Endpoint operation={operation} inverted={true} handleUrl={this.onUrlChanged}/>}
+              )}
+              {options.pathInMiddlePanel && (
+                <Endpoint operation={operation} inverted={true} handleUrl={this.onUrlChanged} />
+              )}
               {hasDescription && (
                 <Description>
                   {description !== undefined && <Markdown source={description} />}
@@ -97,8 +97,10 @@ export class Operation extends React.Component<OperationProps, OperationState> {
               <CallbacksList callbacks={operation.callbacks} />
             </MiddlePanel>
             <DarkRightPanel>
-              {!options.pathInMiddlePanel && <Endpoint operation={operation} handleUrl={this.onUrlChanged}/>}
-              {executeMode &&
+              {!options.pathInMiddlePanel && (
+                <Endpoint operation={operation} handleUrl={this.onUrlChanged} />
+              )}
+              {executeMode && (
                 <div>
                   <ConsoleViewer
                     securitySchemes={securitySchemes}
@@ -109,22 +111,18 @@ export class Operation extends React.Component<OperationProps, OperationState> {
                     queryParamSuffix={options.queryParamSuffix}
                   />
                 </div>
-              }
-              {!executeMode &&
-                <RequestSamples operation={operation} />
-              }
-              {!executeMode &&
-                <ResponseSamples operation={operation} />
-              }
+              )}
+              {!executeMode && <RequestSamples operation={operation} />}
+              {!executeMode && <ResponseSamples operation={operation} />}
             </DarkRightPanel>
           </OperationRow>
         )}
       </OptionsContext.Consumer>
     );
   }
-  onUrlChanged = (index= 0) => {
+  onUrlChanged = (index = 0) => {
     this.setState({
       urlIndex: index,
     });
-  }
+  };
 }

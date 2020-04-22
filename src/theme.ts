@@ -293,7 +293,7 @@ export interface ResolvedThemeInterface {
     fontWeightBold: string;
     fontFamily: string;
 
-    direction?: 'ltr' | 'rtl',
+    direction?: 'ltr' | 'rtl';
 
     smoothing: string;
     optimizeSpeed: boolean;

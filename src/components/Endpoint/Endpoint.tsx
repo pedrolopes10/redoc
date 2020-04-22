@@ -76,8 +76,15 @@ export class Endpoint extends React.Component<EndpointProps, EndpointState> {
                   ? expandDefaultServerVariables(server.url, server.variables)
                   : server.url;
                 return (
-                  <ServerItem className={this.state.selectedItem === index ? 'selected' : ''} key={normalizedUrl}>
-                    <Markdown onSelectUrl={this.handleUrl.bind(this, index)} source={server.description || ''} compact={true} />
+                  <ServerItem
+                    className={this.state.selectedItem === index ? 'selected' : ''}
+                    key={normalizedUrl}
+                  >
+                    <Markdown
+                      onSelectUrl={this.handleUrl.bind(this, index)}
+                      source={server.description || ''}
+                      compact={true}
+                    />
                     <SelectOnClick onSelectUrl={this.handleUrl.bind(this, index)}>
                       <ServerUrl>
                         <span>

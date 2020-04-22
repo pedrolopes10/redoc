@@ -8,8 +8,8 @@ import 'brace/mode/json';
 import 'brace/theme/github';
 import 'brace/theme/monokai';
 
-import {MediaTypeModel} from '../../services/models';
-import {ConsoleEditorWrapper} from './ConsoleEditorWrapper';
+import { MediaTypeModel } from '../../services/models';
+import { ConsoleEditorWrapper } from './ConsoleEditorWrapper';
 
 export interface ConsoleEditorProps {
   mediaTypes: MediaTypeModel[];
@@ -17,7 +17,6 @@ export interface ConsoleEditorProps {
 
 @observer
 export class ConsoleEditor extends React.Component<ConsoleEditorProps> {
-
   editor: any;
 
   render() {
@@ -62,7 +61,6 @@ export class ConsoleEditor extends React.Component<ConsoleEditorProps> {
       </ConsoleEditorWrapper>
     );
   }
-
 }
 
 function getDefaultOrFirst(object) {

@@ -233,7 +233,7 @@ export class RedocNormalizedOptions {
     this.enumSkipQuotes = argValueToBoolean(raw.enumSkipQuotes);
     this.hideSchemaTitles = argValueToBoolean(raw.hideSchemaTitles);
     this.payloadSampleIdx = RedocNormalizedOptions.normalizePayloadSampleIdx(raw.payloadSampleIdx);
-    this.expandSingleSchemaField = argValueToBoolean(raw.expandSingleSchemaField);    
+    this.expandSingleSchemaField = argValueToBoolean(raw.expandSingleSchemaField);
     this.enableConsole = argValueToBoolean(raw.enableConsole);
     this.additionalHeaders = raw.additionalHeaders || {};
     this.providedByName = raw.providedByName || 'Documentation Powered by ReDoc';

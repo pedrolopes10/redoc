@@ -1,4 +1,4 @@
-import {observable} from 'mobx';
+import { observable } from 'mobx';
 import { OpenAPISecurityScheme, Referenced } from '../../types';
 import { SECURITY_SCHEMES_SECTION_PREFIX } from '../../utils/openapi';
 import { OpenAPIParser } from '../OpenAPIParser';

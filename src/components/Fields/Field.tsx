@@ -66,12 +66,12 @@ export class Field extends React.Component<FieldProps> {
         {required && <RequiredLabel> required </RequiredLabel>}
       </ClickablePropertyNameCell>
     ) : (
-        <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
-          <PropertyBullet />
-          {name}
-          {required && <RequiredLabel> required </RequiredLabel>}
-        </PropertyNameCell>
-      );
+      <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
+        <PropertyBullet />
+        {name}
+        {required && <RequiredLabel> required </RequiredLabel>}
+      </PropertyNameCell>
+    );
 
     return (
       <>
@@ -80,9 +80,11 @@ export class Field extends React.Component<FieldProps> {
           <PropertyDetailsCell>
             <FieldDetails {...this.props} />
           </PropertyDetailsCell>
-          {field && field.in === 'path' &&
-            <td><TextField placeholder={field.name} onChange={this.onFieldChange} /></td>
-          }
+          {field && field.in === 'path' && (
+            <td>
+              <TextField placeholder={field.name} onChange={this.onFieldChange} />
+            </td>
+          )}
         </tr>
         {expanded && withSubSchema && (
           <tr key={field.name + 'inner'}>

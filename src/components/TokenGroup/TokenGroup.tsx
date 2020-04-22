@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, RightPanelHeader} from '../../common-elements';
+import { Button, RightPanelHeader } from '../../common-elements';
 import styled from '../../styled-components';
 
 const SaveTokenButton = styled(Button)`
@@ -68,16 +68,12 @@ export class TokenGroup extends React.PureComponent<TokenGroupProps> {
   render() {
     return (
       <>
-        <RightPanelHeader>
-          {this.props.title}
-        </RightPanelHeader>
+        <RightPanelHeader>{this.props.title}</RightPanelHeader>
         <TokenGroupContainer>
           <TokenTextField onChange={this.change} />
           <SaveTokenButton onClick={this.submit}>Save</SaveTokenButton>
         </TokenGroupContainer>
-        <Description>
-          {this.props.description}
-        </Description>
+        <Description>{this.props.description}</Description>
       </>
     );
   }

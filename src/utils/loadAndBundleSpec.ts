@@ -22,7 +22,6 @@ export async function loadAndBundleSpec(specUrlOrObject: object | string): Promi
   // } as object);
 
   return v2Specs;
-
 }
 
 export function convertSwagger2OpenAPI(spec: any): Promise<OpenAPISpec> {

@@ -28,7 +28,7 @@ export const DownloadButton = styled.a`
 export const InfoSpan = styled.span`
   &::before {
     content: '|';
-    display: ${props => (props.theme.typography.direction === 'ltr') ? 'inline-block' : 'none'};
+    display: ${props => (props.theme.typography.direction === 'ltr' ? 'inline-block' : 'none')};
     opacity: 0.5;
     width: ${delimiterWidth}px;
     text-align: center;
@@ -36,7 +36,7 @@ export const InfoSpan = styled.span`
 
   &::after {
     content: '|';
-    display: ${props => (props.theme.typography.direction === 'rtl') ? 'inline-block' : 'none'};
+    display: ${props => (props.theme.typography.direction === 'rtl' ? 'inline-block' : 'none')};
     opacity: 0.5;
     width: ${delimiterWidth}px;
     text-align: center;
