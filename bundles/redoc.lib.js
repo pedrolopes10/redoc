@@ -6525,7 +6525,7 @@ module.exports = require("prismjs/components/prism-swift.js");
 				var addMethods = __webpack_require__(80)
 				var methods = ["add","done","toJS","load","search"]
 				module.exports = function() {
-					var w = new Worker(__webpack_require__.p + "e5b0b67475c1ea2a32fd.worker.js", { name: "[hash].worker.js" })
+					var w = new Worker(__webpack_require__.p + "ba23e978910075a5c680.worker.js", { name: "[hash].worker.js" })
 					addMethods(w, methods)
 					
 					return w
@@ -7684,7 +7684,7 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "98e263c9"));
+                    "2288de44"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -12903,8 +12903,8 @@ var ApiInfo_ApiInfo = /** @class */ (function (_super) {
         return _this;
     }
     ApiInfo.prototype.render = function () {
-        var store = this.props.store;
-        var _a = store.spec, info = _a.info, externalDocs = _a.externalDocs;
+        var _a = this.props, store = _a.store, CustomDescription = _a.CustomDescription;
+        var _b = store.spec, info = _b.info, externalDocs = _b.externalDocs;
         var hideDownloadButton = store.options.hideDownloadButton;
         var downloadFilename = info.downloadFileName;
         var downloadLink = info.downloadLink;
@@ -12945,6 +12945,7 @@ var ApiInfo_ApiInfo = /** @class */ (function (_super) {
                             " ",
                             terms)) || null),
                     external_react_["createElement"](Markdown_Markdown, { source: store.spec.info.description, "data-role": "redoc-description" }),
+                    CustomDescription,
                     externalDocs && external_react_["createElement"](ExternalDocumentation_ExternalDocumentation, { externalDocs: externalDocs }))));
     };
     ApiInfo = Object(external_tslib_["__decorate"])([
@@ -14820,7 +14821,7 @@ var Redoc_Redoc = /** @class */ (function (_super) {
         this.props.store.dispose();
     };
     Redoc.prototype.render = function () {
-        var _a = this.props.store, spec = _a.spec, menu = _a.menu, options = _a.options, search = _a.search, marker = _a.marker;
+        var _a = this.props, _b = _a.store, spec = _b.spec, menu = _b.menu, options = _b.options, search = _b.search, marker = _b.marker, CustomDescription = _a.CustomDescription;
         var store = this.props.store;
         return external_react_["createElement"](ThemeProvider, { theme: options.theme },
             external_react_["createElement"](Provider, { value: this.props.store },
@@ -14831,7 +14832,7 @@ var Redoc_Redoc = /** @class */ (function (_super) {
                             !options.disableSearch && external_react_["createElement"](SearchBox_SearchBox, { search: search, marker: marker, getItemById: menu.getItemById, onActivate: menu.activateAndScroll }) || null,
                             external_react_["createElement"](SideMenu_SideMenu, { menu: menu })),
                         external_react_["createElement"](ApiContentWrap, { className: "api-content" },
-                            external_react_["createElement"](ApiInfo_ApiInfo, { store: store }),
+                            external_react_["createElement"](ApiInfo_ApiInfo, { CustomDescription: CustomDescription, store: store }),
                             external_react_["createElement"](ContentItems_ContentItems, { store: store, items: menu.items })),
                         external_react_["createElement"](BackgroundStub, null)))));
     };
@@ -14857,13 +14858,13 @@ var RedocStandalone_RedocStandalone = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     RedocStandalone.prototype.render = function () {
-        var _a = this.props, spec = _a.spec, specUrl = _a.specUrl, _b = _a.options, options = _b === void 0 ? {} : _b, onLoaded = _a.onLoaded;
+        var _a = this.props, spec = _a.spec, specUrl = _a.specUrl, _b = _a.options, options = _b === void 0 ? {} : _b, onLoaded = _a.onLoaded, CustomDescription = _a.CustomDescription;
         var hideLoading = options.hideLoading !== undefined;
         var normalizedOpts = new RedocNormalizedOptions_RedocNormalizedOptions(options);
         return external_react_["createElement"](ErrorBoundary_ErrorBoundary, null,
             external_react_["createElement"](StoreBuilder_StoreBuilder, { spec: spec, specUrl: specUrl, options: options, onLoaded: onLoaded }, function (_a) {
                 var loading = _a.loading, store = _a.store;
-                return !loading ? external_react_["createElement"](Redoc_Redoc, { store: store }) : hideLoading ? null : external_react_["createElement"](Loading_Loading, { color: normalizedOpts.theme.colors.primary.main });
+                return !loading ? external_react_["createElement"](Redoc_Redoc, { store: store, CustomDescription: CustomDescription }) : hideLoading ? null : external_react_["createElement"](Loading_Loading, { color: normalizedOpts.theme.colors.primary.main });
             }));
     };
     RedocStandalone.propTypes = {
