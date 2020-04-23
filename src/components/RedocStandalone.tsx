@@ -11,6 +11,7 @@ export interface RedocStandaloneProps {
   spec?: object;
   specUrl?: string;
   options?: RedocRawOptions;
+  CustomDescription?: any;
   onLoaded?: (e?: Error) => any;
 }
 
@@ -38,7 +39,7 @@ export class RedocStandalone extends React.PureComponent<RedocStandaloneProps> {
   };
 
   render() {
-    const { spec, specUrl, options = {}, onLoaded } = this.props;
+    const { spec, specUrl, options = {}, onLoaded, CustomDescription } = this.props;
     const hideLoading = options.hideLoading !== undefined;
 
     const normalizedOpts = new RedocNormalizedOptions(options);
@@ -48,7 +49,7 @@ export class RedocStandalone extends React.PureComponent<RedocStandaloneProps> {
         <StoreBuilder spec={spec} specUrl={specUrl} options={options} onLoaded={onLoaded}>
           {({ loading, store }) =>
             !loading ? (
-              <Redoc store={store!} />
+              <Redoc store={store!} CustomDescription={CustomDescription} />
             ) : hideLoading ? null : (
               <Loading color={normalizedOpts.theme.colors.primary.main} />
             )

@@ -17,6 +17,7 @@ import {
 
 export interface ApiInfoProps {
   store: AppStore;
+  CustomDescription?: any;
 }
 
 @observer
@@ -28,7 +29,7 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
   };
 
   render() {
-    const { store } = this.props;
+    const { store, CustomDescription } = this.props;
     const { info, externalDocs } = store.spec;
     const hideDownloadButton = store.options.hideDownloadButton;
 
@@ -101,6 +102,7 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
                 null}
             </StyledMarkdownBlock>
             <Markdown source={store.spec.info.description} data-role="redoc-description" />
+            {CustomDescription}
             {externalDocs && <ExternalDocumentation externalDocs={externalDocs} />}
           </MiddlePanel>
         </Row>
