@@ -24,6 +24,7 @@ export interface ConsoleViewerProps {
 
 export interface ConsoleViewerState {
   result: any;
+  fetching: boolean;
 }
 
 export interface Schema {
@@ -41,9 +42,13 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
     super(props);
     this.state = {
       result: null,
+      fetching: false
     };
   }
   onClickSend = async () => {
+    this.setState({
+      fetching: true,
+    });
     const ace = this.consoleEditor && this.consoleEditor.editor;
     const {
       operation,
@@ -78,7 +83,7 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
         // this part of code needs a ts-ignore because typescript couldn't detect that schemeMapper.get(id) -
         // has been checked to avoid token of undefined.
         // @ts-ignore
-        securityHeaders[id] = schemeMapper.get(id).token;
+        securityHeaders['Authorization'] = 'Bearer ' + schemeMapper.get(id).token;
       }
     });
     const headers = { ...additionalHeaders, ...contentTypeHeader, ...securityHeaders };
@@ -87,10 +92,12 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
       result = await this.invoke(endpoint, value, headers);
       this.setState({
         result,
+        fetching: false
       });
     } catch (error) {
       this.setState({
         result: error,
+        fetching: false
       });
     }
   };
@@ -175,7 +182,7 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
           />
         )}
         <FlexLayoutReverse>
-          <SubmitButton onClick={this.onClickSend}>Send Request</SubmitButton>
+          <SubmitButton onClick={this.onClickSend} disabled={this.state.fetching}>{this.state.fetching ? 'Fetching...' : 'Send Request'}</SubmitButton>
         </FlexLayoutReverse>
         {result && <ConsoleResponse response={result} />}
       </div>
