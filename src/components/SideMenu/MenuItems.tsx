@@ -20,12 +20,12 @@ export interface MenuItemsProps {
 export class MenuItems extends React.Component<MenuItemsProps> {
   render() {
     const { items, root, className } = this.props;
-    const expanded = this.props.expanded == null ? true : this.props.expanded;
+    //const expanded = this.props.expanded == null ? true : this.props.expanded;
     return (
       <MenuItemUl
         className={className}
         style={this.props.style}
-        expanded={expanded}
+        expanded={true}
         {...(root ? { role: 'navigation' } : {})}
       >
         {items.map((item, idx) => (

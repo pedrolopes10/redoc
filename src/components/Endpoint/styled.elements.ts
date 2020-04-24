@@ -57,7 +57,7 @@ export const EndpointInfo = styled.div<{ expanded?: boolean; inverted?: boolean 
 
 export const HttpVerb = styled.span.attrs((props: { type: string; compact?: boolean }) => ({
   className: `http-verb ${props.type}`,
-}))<{ type: string; compact?: boolean }>`
+})) <{ type: string; compact?: boolean }>`
   font-size: ${props => (props.compact ? '0.8em' : '0.929em')};
   line-height: ${props => (props.compact ? '18px' : '20px')};
   background-color: ${props => props.theme.colors.http[props.type] || '#999999'};
@@ -92,10 +92,6 @@ export const ServerItem = styled.div`
   flex-wrap: nowrap;
   &.selected {
     background-color: #3c7173;
-  }
-  div:first-child {
-    width: 20%;
-    padding-top: 5px;
   }
 `;
 

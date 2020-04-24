@@ -95,10 +95,10 @@ export class SecurityDefs extends React.PureComponent<SecurityDefsProps, Securit
 
   render() {
     return this.props.securitySchemes.schemes.map(scheme => (
-      <Section id={scheme.sectionId} key={scheme.id}>
+      <Section id={scheme.sectionId} key={scheme.id} style={{ paddingTop: 0 }}>
         <Row>
           <MiddlePanel>
-            <H2>
+            <H2 style={{ marginTop: 5 }}>
               <ShareLink to={scheme.sectionId} />
               {scheme.id}
             </H2>

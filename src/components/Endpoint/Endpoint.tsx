@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ShelfIcon } from '../../common-elements';
 import { ClipboardService, OperationModel } from '../../services';
-import { Markdown } from '../Markdown/Markdown';
 import { OptionsContext } from '../OptionsProvider';
 import { SelectOnClick } from '../SelectOnClick/SelectOnClick';
 
@@ -80,11 +79,6 @@ export class Endpoint extends React.Component<EndpointProps, EndpointState> {
                     className={this.state.selectedItem === index ? 'selected' : ''}
                     key={normalizedUrl}
                   >
-                    <Markdown
-                      onSelectUrl={this.handleUrl.bind(this, index)}
-                      source={server.description || ''}
-                      compact={true}
-                    />
                     <SelectOnClick onSelectUrl={this.handleUrl.bind(this, index)}>
                       <ServerUrl>
                         <span>

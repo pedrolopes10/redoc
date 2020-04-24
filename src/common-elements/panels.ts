@@ -12,14 +12,18 @@ export const MiddlePanel = styled.div<{ compact?: boolean }>`
     width: 100%;
     padding: ${`${compact ? 0 : theme.spacing.sectionVertical}px ${
       theme.spacing.sectionHorizontal
-    }px`};
+      }px`};
   `};
 `;
 
 export const Section = styled.div.attrs(props => ({
   [SECTION_ATTR]: props.id,
-}))<{ underlined?: boolean }>`
+})) <{ underlined?: boolean }>`
   padding: ${props => props.theme.spacing.sectionVertical}px 0;
+
+  &:first-child {
+    padding: ${props => props.theme.spacing.sectionHorizontal - 5}px 0;
+  }
 
   &:last-child {
     min-height: calc(100vh + 1px);

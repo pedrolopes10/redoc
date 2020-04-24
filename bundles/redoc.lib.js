@@ -1,7 +1,7 @@
 /*!
  * ReDoc - OpenAPI/Swagger-generated API Reference Documentation
  * -------------------------------------------------------------
- *   Version: "2.0.0-rc.27"
+ *   Version: "2.0.0-rc.27-fork-1"
  *   Repo: https://github.com/Redocly/redoc
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -6525,7 +6525,7 @@ module.exports = require("prismjs/components/prism-swift.js");
 				var addMethods = __webpack_require__(80)
 				var methods = ["add","done","toJS","load","search"]
 				module.exports = function() {
-					var w = new Worker(__webpack_require__.p + "1756a29b4e21b9bfa9cb.worker.js", { name: "[hash].worker.js" })
+					var w = new Worker(__webpack_require__.p + "ba23e978910075a5c680.worker.js", { name: "[hash].worker.js" })
 					addMethods(w, methods)
 					
 					return w
@@ -7679,12 +7679,12 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                         external_react_["createElement"]("pre", null, this.state.error.stack))),
                 external_react_["createElement"]("small", null,
                     " ReDoc Version: ",
-                    "2.0.0-rc.27"),
+                    "2.0.0-rc.27-fork-1"),
                 " ",
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "f14b9751"));
+                    "cc8be45e"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -10749,9 +10749,9 @@ var Section = styled_components.div.attrs(function (props) {
     return (_a = {},
         _a[SECTION_ATTR] = props.id,
         _a);
-})(templateObject_4 || (templateObject_4 = Object(external_tslib_["__makeTemplateObject"])(["\n  padding: ", "px 0;\n\n  &:last-child {\n    min-height: calc(100vh + 1px);\n  }\n\n  & > &:last-child {\n    min-height: initial;\n  }\n\n  ", "\n  ", "\n"], ["\n  padding: ", "px 0;\n\n  &:last-child {\n    min-height: calc(100vh + 1px);\n  }\n\n  & > &:last-child {\n    min-height: initial;\n  }\n\n  ",
+})(templateObject_4 || (templateObject_4 = Object(external_tslib_["__makeTemplateObject"])(["\n  padding: ", "px 0;\n\n  &:first-child {\n    padding: ", "px 0;\n  }\n\n  &:last-child {\n    min-height: calc(100vh + 1px);\n  }\n\n  & > &:last-child {\n    min-height: initial;\n  }\n\n  ", "\n  ", "\n"], ["\n  padding: ", "px 0;\n\n  &:first-child {\n    padding: ", "px 0;\n  }\n\n  &:last-child {\n    min-height: calc(100vh + 1px);\n  }\n\n  & > &:last-child {\n    min-height: initial;\n  }\n\n  ",
     "\n  ",
-    "\n"])), function (props) { return props.theme.spacing.sectionVertical; }, media.lessThan('medium', true)(panels_templateObject_3 || (panels_templateObject_3 = Object(external_tslib_["__makeTemplateObject"])(["\n    padding: 0;\n  "], ["\n    padding: 0;\n  "]))), function (props) { return props.underlined && "\n    position: relative;\n\n    &:not(:last-of-type):after {\n      position: absolute;\n      bottom: 0;\n      width: 100%;\n      display: block;\n      content: '';\n      border-bottom: 1px solid rgba(0, 0, 0, 0.2);\n    }\n  " || ''; });
+    "\n"])), function (props) { return props.theme.spacing.sectionVertical; }, function (props) { return props.theme.spacing.sectionHorizontal - 5; }, media.lessThan('medium', true)(panels_templateObject_3 || (panels_templateObject_3 = Object(external_tslib_["__makeTemplateObject"])(["\n    padding: 0;\n  "], ["\n    padding: 0;\n  "]))), function (props) { return props.underlined && "\n    position: relative;\n\n    &:not(:last-of-type):after {\n      position: absolute;\n      bottom: 0;\n      width: 100%;\n      display: block;\n      content: '';\n      border-bottom: 1px solid rgba(0, 0, 0, 0.2);\n    }\n  " || ''; });
 var RightPanel = styled_components.div(templateObject_6 || (templateObject_6 = Object(external_tslib_["__makeTemplateObject"])(["\n  width: ", ";\n  color: ", ";\n  background-color: ", ";\n  padding: 0 ", "px;\n\n  ", ";\n"], ["\n  width: ", ";\n  color: ",
     ";\n  background-color: ", ";\n  padding: 0 ", "px;\n\n  ",
     ";\n"])), function (props) { return props.theme.rightPanel.width; }, function (_a) {
@@ -11308,7 +11308,7 @@ var Markdown_Markdown = /** @class */ (function (_super) {
     function Markdown() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.handleClick = function () {
-            _this.props.onSelectUrl();
+            _this.props.onSelectUrl && _this.props.onSelectUrl();
         };
         return _this;
     }
@@ -12627,10 +12627,14 @@ var SecuritySchemes_SecurityDefs = /** @class */ (function (_super) {
     }
     SecurityDefs.prototype.render = function () {
         var _this = this;
-        return this.props.securitySchemes.schemes.map(function (scheme) { return external_react_["createElement"](Section, { id: scheme.sectionId, key: scheme.id },
+        return this.props.securitySchemes.schemes.map(function (scheme) { return external_react_["createElement"](Section, { id: scheme.sectionId, key: scheme.id, style: {
+                paddingTop: 0
+            } },
             external_react_["createElement"](Row, null,
                 external_react_["createElement"](MiddlePanel, null,
-                    external_react_["createElement"](H2, null,
+                    external_react_["createElement"](H2, { style: {
+                            marginTop: 5
+                        } },
                         external_react_["createElement"](ShareLink, { to: scheme.sectionId }),
                         scheme.id),
                     external_react_["createElement"](Markdown_Markdown, { source: scheme.description || '' }),
@@ -13172,7 +13176,6 @@ var Callbacks_styled_elements_templateObject_1, Callbacks_styled_elements_templa
 
 
 
-
 var SelectOnClick_SelectOnClick = /** @class */ (function (_super) {
     Object(external_tslib_["__extends"])(SelectOnClick, _super);
     function SelectOnClick() {
@@ -13186,13 +13189,13 @@ var SelectOnClick_SelectOnClick = /** @class */ (function (_super) {
     SelectOnClick.prototype.render = function () {
         var _this = this;
         var children = this.props.children;
-        return external_react_["createElement"](SelectArea, { ref: function (el) { return _this.child = el; }, onClick: this.handleClick.bind(this, children) }, children);
+        return external_react_["createElement"]("div", { style: {
+                width: '100%'
+            }, ref: function (el) { return _this.child = el; }, onClick: this.handleClick.bind(this, children) }, children);
     };
     return SelectOnClick;
 }(external_react_["PureComponent"]));
 
-var SelectArea = styled_components.div(SelectOnClick_templateObject_1 || (SelectOnClick_templateObject_1 = Object(external_tslib_["__makeTemplateObject"])(["\n  width: 80%;\n"], ["\n  width: 80%;\n"])));
-var SelectOnClick_templateObject_1;
 
 // CONCATENATED MODULE: ./src/components/Endpoint/styled.elements.ts
 
@@ -13204,12 +13207,11 @@ var HttpVerb = styled_components.span.attrs(function (props) { return ({
     className: "http-verb " + props.type
 }); })(Endpoint_styled_elements_templateObject_4 || (Endpoint_styled_elements_templateObject_4 = Object(external_tslib_["__makeTemplateObject"])(["\n  font-size: ", ";\n  line-height: ", ";\n  background-color: ", ";\n  color: #ffffff;\n  padding: ", ";\n  text-transform: uppercase;\n  font-family: ", ";\n  margin: 0;\n"], ["\n  font-size: ", ";\n  line-height: ", ";\n  background-color: ", ";\n  color: #ffffff;\n  padding: ", ";\n  text-transform: uppercase;\n  font-family: ", ";\n  margin: 0;\n"])), function (props) { return props.compact ? '0.8em' : '0.929em'; }, function (props) { return props.compact ? '18px' : '20px'; }, function (props) { return props.theme.colors.http[props.type] || '#999999'; }, function (props) { return props.compact ? '2px 8px' : '3px 10px'; }, function (props) { return props.theme.typography.headings.fontFamily; });
 var ServersOverlay = styled_components.div(Endpoint_styled_elements_templateObject_5 || (Endpoint_styled_elements_templateObject_5 = Object(external_tslib_["__makeTemplateObject"])(["\n  position: absolute;\n  width: 100%;\n  z-index: 100;\n  background: #fafafa;\n  color: #263238;\n  box-sizing: border-box;\n  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.33);\n  overflow: hidden;\n  border-bottom-left-radius: 4px;\n  border-bottom-right-radius: 4px;\n  transition: all 0.25s ease;\n\n  ", "\n"], ["\n  position: absolute;\n  width: 100%;\n  z-index: 100;\n  background: #fafafa;\n  color: #263238;\n  box-sizing: border-box;\n  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.33);\n  overflow: hidden;\n  border-bottom-left-radius: 4px;\n  border-bottom-right-radius: 4px;\n  transition: all 0.25s ease;\n\n  ", "\n"])), function (props) { return props.expanded ? '' : 'transform: translateY(-50%) scaleY(0);'; });
-var ServerItem = styled_components.div(Endpoint_styled_elements_templateObject_6 || (Endpoint_styled_elements_templateObject_6 = Object(external_tslib_["__makeTemplateObject"])(["\n  padding: 10px;\n  background-color: #002c2d;\n  color: white;\n  display: flex;\n  flex-wrap: nowrap;\n  &.selected {\n    background-color: #3c7173;\n  }\n  div:first-child {\n    width: 20%;\n    padding-top: 5px;\n  }\n"], ["\n  padding: 10px;\n  background-color: #002c2d;\n  color: white;\n  display: flex;\n  flex-wrap: nowrap;\n  &.selected {\n    background-color: #3c7173;\n  }\n  div:first-child {\n    width: 20%;\n    padding-top: 5px;\n  }\n"])));
+var ServerItem = styled_components.div(Endpoint_styled_elements_templateObject_6 || (Endpoint_styled_elements_templateObject_6 = Object(external_tslib_["__makeTemplateObject"])(["\n  padding: 10px;\n  background-color: #002c2d;\n  color: white;\n  display: flex;\n  flex-wrap: nowrap;\n  &.selected {\n    background-color: #3c7173;\n  }\n"], ["\n  padding: 10px;\n  background-color: #002c2d;\n  color: white;\n  display: flex;\n  flex-wrap: nowrap;\n  &.selected {\n    background-color: #3c7173;\n  }\n"])));
 var ServerUrl = styled_components.div(Endpoint_styled_elements_templateObject_7 || (Endpoint_styled_elements_templateObject_7 = Object(external_tslib_["__makeTemplateObject"])(["\n  text-align: left;\n  user-select: none;\n  padding: 5px !important;\n  background-color: #ffffff33;\n  word-break: break-all;\n  width: 100% !important;\n  color: #00ff1c;\n  > span {\n    color: white;\n  }\n"], ["\n  text-align: left;\n  user-select: none;\n  padding: 5px !important;\n  background-color: #ffffff33;\n  word-break: break-all;\n  width: 100% !important;\n  color: #00ff1c;\n  > span {\n    color: white;\n  }\n"])));
 var Endpoint_styled_elements_templateObject_1, Endpoint_styled_elements_templateObject_2, Endpoint_styled_elements_templateObject_3, Endpoint_styled_elements_templateObject_4, Endpoint_styled_elements_templateObject_5, Endpoint_styled_elements_templateObject_6, Endpoint_styled_elements_templateObject_7;
 
 // CONCATENATED MODULE: ./src/components/Endpoint/Endpoint.tsx
-
 
 
 
@@ -13249,7 +13251,6 @@ var Endpoint_Endpoint = /** @class */ (function (_super) {
             external_react_["createElement"](ServersOverlay, { expanded: expanded }, operation.servers.map(function (server, index) {
                 var normalizedUrl = options.expandDefaultServerVariables ? expandDefaultServerVariables(server.url, server.variables) : server.url;
                 return external_react_["createElement"](ServerItem, { className: _this.state.selectedItem === index ? 'selected' : '', key: normalizedUrl },
-                    external_react_["createElement"](Markdown_Markdown, { onSelectUrl: _this.handleUrl.bind(_this, index), source: server.description || '', compact: true }),
                     external_react_["createElement"](SelectOnClick_SelectOnClick, { onSelectUrl: _this.handleUrl.bind(_this, index) },
                         external_react_["createElement"](ServerUrl, null,
                             external_react_["createElement"]("span", null, hideHostname || options.hideHostname ? getBasePath(normalizedUrl) : normalizedUrl),
@@ -13875,7 +13876,6 @@ var SwitchBox_templateObject_1, SwitchBox_templateObject_2;
 
 
 
-
 var Response_ConsoleResponse = /** @class */ (function (_super) {
     Object(external_tslib_["__extends"])(ConsoleResponse, _super);
     function ConsoleResponse(props) {
@@ -13891,10 +13891,9 @@ var Response_ConsoleResponse = /** @class */ (function (_super) {
         return _this;
     }
     ConsoleResponse.prototype.render = function () {
-        var _a = this.props.response, headers = _a.headers, type = _a.type, status = _a.status, statusText = _a.statusText, content = _a.content;
-        var collapse = this.state.collapse;
+        var _a = this.props.response, type = _a.type, status = _a.status, statusText = _a.statusText, content = _a.content;
         return external_react_["createElement"](external_react_["Fragment"], null,
-            external_react_["createElement"](RightPanelHeader, null, " status: "),
+            external_react_["createElement"](RightPanelHeader, null, " Status: "),
             external_react_["createElement"](StatusWrapper, { className: 'status-' + type },
                 ' ',
                 status,
@@ -13902,23 +13901,14 @@ var Response_ConsoleResponse = /** @class */ (function (_super) {
                 statusText),
             external_react_["createElement"](RightPanelHeader, null, " Response Payload "),
             external_react_["createElement"](JsonWrapper, null,
-                external_react_["createElement"](JsonViewer, { data: content })),
-            external_react_["createElement"](RightPanelHeader, null, " Response Headers"),
-            external_react_["createElement"](HeaderWrapper, null,
-                external_react_["createElement"](SourceCodeWrapper, { className: 'collapse-' + collapse },
-                    external_react_["createElement"](SourceCode_SourceCodeWithCopy, { lang: "json", source: JSON.stringify(headers, null, 2) })),
-                collapse && external_react_["createElement"](ShowMore, { onClick: this.changeCollapse },
-                    external_react_["createElement"]("u", null, "+ show undocumented response headers"))));
+                external_react_["createElement"](JsonViewer, { data: content })));
     };
     return ConsoleResponse;
 }(external_react_["PureComponent"]));
 
-var HeaderWrapper = styled_components.div(Response_templateObject_1 || (Response_templateObject_1 = Object(external_tslib_["__makeTemplateObject"])(["\n  color: white;\n  background-color: ", ";\n  padding: 10px 0 18px;\n  margin: 10px 0;\n  height: 100%;\n  div div div {\n    display: none !important;\n  }\n  div pre span:first-child {\n    display: none !important;\n  }\n  div pre span:last-child {\n    display: none !important;\n  }\n  div pre {\n    height: 100%;\n    overflow: hidden;\n  }\n  div {\n    height: 100%;\n  }\n"], ["\n  color: white;\n  background-color: ", ";\n  padding: 10px 0 18px;\n  margin: 10px 0;\n  height: 100%;\n  div div div {\n    display: none !important;\n  }\n  div pre span:first-child {\n    display: none !important;\n  }\n  div pre span:last-child {\n    display: none !important;\n  }\n  div pre {\n    height: 100%;\n    overflow: hidden;\n  }\n  div {\n    height: 100%;\n  }\n"])), function (props) { return props.theme.codeSample.backgroundColor; });
-var SourceCodeWrapper = styled_components.div(Response_templateObject_2 || (Response_templateObject_2 = Object(external_tslib_["__makeTemplateObject"])(["\n  &.collapse-false {\n    height: 89px;\n  }\n  &.collapse-true {\n    height: auto;\n  }\n"], ["\n  &.collapse-false {\n    height: 89px;\n  }\n  &.collapse-true {\n    height: auto;\n  }\n"])));
-var JsonWrapper = styled_components.div(Response_templateObject_3 || (Response_templateObject_3 = Object(external_tslib_["__makeTemplateObject"])(["\n  color: white;\n  background-color: ", ";\n  padding: 10px;\n  margin: 10px 0;\n"], ["\n  color: white;\n  background-color: ", ";\n  padding: 10px;\n  margin: 10px 0;\n"])), function (props) { return props.theme.codeSample.backgroundColor; });
-var StatusWrapper = styled_components.div(Response_templateObject_4 || (Response_templateObject_4 = Object(external_tslib_["__makeTemplateObject"])(["\n  &.status-success {\n    color: #00ff1c;\n  }\n  &.status-redirect {\n    color: ", ";\n  }\n  &.status-info {\n    color: ", ";\n  }\n  &.status-error {\n    color: ", ";\n  }\n  color: white;\n  background-color: ", ";\n  padding: 10px;\n  margin: 10px 0;\n"], ["\n  &.status-success {\n    color: #00ff1c;\n  }\n  &.status-redirect {\n    color: ", ";\n  }\n  &.status-info {\n    color: ", ";\n  }\n  &.status-error {\n    color: ", ";\n  }\n  color: white;\n  background-color: ", ";\n  padding: 10px;\n  margin: 10px 0;\n"])), function (props) { return props.theme.colors.responses.redirect.color; }, function (props) { return props.theme.colors.responses.info.color; }, function (props) { return props.theme.colors.responses.error.color; }, function (props) { return props.theme.codeSample.backgroundColor; });
-var ShowMore = styled_components.div(Response_templateObject_5 || (Response_templateObject_5 = Object(external_tslib_["__makeTemplateObject"])(["\n  text-align: center;\n  u {\n    cursor: pointer;\n  }\n"], ["\n  text-align: center;\n  u {\n    cursor: pointer;\n  }\n"])));
-var Response_templateObject_1, Response_templateObject_2, Response_templateObject_3, Response_templateObject_4, Response_templateObject_5;
+var JsonWrapper = styled_components.div(Response_templateObject_1 || (Response_templateObject_1 = Object(external_tslib_["__makeTemplateObject"])(["\n  color: white;\n  background-color: ", ";\n  padding: 10px;\n  margin: 10px 0;\n"], ["\n  color: white;\n  background-color: ", ";\n  padding: 10px;\n  margin: 10px 0;\n"])), function (props) { return props.theme.codeSample.backgroundColor; });
+var StatusWrapper = styled_components.div(Response_templateObject_2 || (Response_templateObject_2 = Object(external_tslib_["__makeTemplateObject"])(["\n  &.status-success {\n    color: #00ff1c;\n  }\n  &.status-redirect {\n    color: ", ";\n  }\n  &.status-info {\n    color: ", ";\n  }\n  &.status-error {\n    color: ", ";\n  }\n  color: white;\n  background-color: ", ";\n  padding: 10px;\n  margin: 10px 0;\n"], ["\n  &.status-success {\n    color: #00ff1c;\n  }\n  &.status-redirect {\n    color: ", ";\n  }\n  &.status-info {\n    color: ", ";\n  }\n  &.status-error {\n    color: ", ";\n  }\n  color: white;\n  background-color: ", ";\n  padding: 10px;\n  margin: 10px 0;\n"])), function (props) { return props.theme.colors.responses.redirect.color; }, function (props) { return props.theme.colors.responses.info.color; }, function (props) { return props.theme.colors.responses.error.color; }, function (props) { return props.theme.codeSample.backgroundColor; });
+var Response_templateObject_1, Response_templateObject_2;
 
 // EXTERNAL MODULE: external "react-ace"
 var external_react_ace_ = __webpack_require__(44);
@@ -14393,7 +14383,7 @@ var MenuItem_MenuItem = /** @class */ (function (_super) {
                 external_react_["createElement"](MenuItemTitle, { title: item.name },
                     item.name,
                     this.props.children),
-                item.depth > 0 && item.items.length > 0 && external_react_["createElement"](ShelfIcon, { float: 'right', direction: item.expanded ? 'down' : 'right' }) || null),
+                item.depth > 0 && item.items.length > 0 && external_react_["createElement"](ShelfIcon, { float: 'right', direction:  true ? 'down' : undefined }) || null),
             !withoutChildren && item.items && item.items.length > 0 && external_react_["createElement"](MenuItems_MenuItems, { expanded: item.expanded, items: item.items, onActivate: this.props.onActivate }));
     };
     MenuItem = Object(external_tslib_["__decorate"])([
@@ -14442,9 +14432,8 @@ var MenuItems_MenuItems = /** @class */ (function (_super) {
     }
     MenuItems.prototype.render = function () {
         var _this = this;
-        var _a = this.props, items = _a.items, root = _a.root, className = _a.className;
-        var expanded = this.props.expanded == null ? true : this.props.expanded;
-        return external_react_["createElement"](MenuItemUl, Object(external_tslib_["__assign"])({ className: className, style: this.props.style, expanded: expanded }, root ? {
+        var _a = this.props, items = _a.items, root = _a.root, className = _a.className; //const expanded = this.props.expanded == null ? true : this.props.expanded;
+        return external_react_["createElement"](MenuItemUl, Object(external_tslib_["__assign"])({ className: className, style: this.props.style, expanded: true }, root ? {
             role: 'navigation'
         } : {}), items.map(function (item, idx) { return external_react_["createElement"](MenuItem_MenuItem, { key: idx, item: item, onActivate: _this.props.onActivate }); }));
     };

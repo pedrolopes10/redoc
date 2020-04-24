@@ -24,7 +24,7 @@ export type MarkdownProps = BaseMarkdownProps &
 
 export class Markdown extends React.Component<MarkdownProps> {
   handleClick = () => {
-    this.props.onSelectUrl();
+    this.props.onSelectUrl && this.props.onSelectUrl();
   };
   render() {
     const { source, inline, compact, className, 'data-role': dataRole } = this.props;
