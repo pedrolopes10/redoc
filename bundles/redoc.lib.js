@@ -6525,7 +6525,7 @@ module.exports = require("prismjs/components/prism-swift.js");
 				var addMethods = __webpack_require__(80)
 				var methods = ["add","done","toJS","load","search"]
 				module.exports = function() {
-					var w = new Worker(__webpack_require__.p + "ba23e978910075a5c680.worker.js", { name: "[hash].worker.js" })
+					var w = new Worker(__webpack_require__.p + "1756a29b4e21b9bfa9cb.worker.js", { name: "[hash].worker.js" })
 					addMethods(w, methods)
 					
 					return w
@@ -7684,7 +7684,7 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "2288de44"));
+                    "f14b9751"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -14033,6 +14033,9 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
             return Object(external_tslib_["__generator"])(this, function (_d) {
                 switch (_d.label) {
                     case 0:
+                        this.setState({
+                            fetching: true
+                        });
                         ace = this.consoleEditor && this.consoleEditor.editor;
                         _a = this.props, operation = _a.operation, schemes = _a.securitySchemes.schemes, _b = _a.additionalHeaders, additionalHeaders = _b === void 0 ? {} : _b, _c = _a.urlIndex, urlIndex = _c === void 0 ? 0 : _c;
                         value = ace && ace.editor.getValue();
@@ -14060,7 +14063,7 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
                                 // this part of code needs a ts-ignore because typescript couldn't detect that schemeMapper.get(id) -
                                 // has been checked to avoid token of undefined.
                                 // @ts-ignore
-                                securityHeaders[id] = schemeMapper.get(id).token;
+                                securityHeaders['Authorization'] = 'Bearer ' + schemeMapper.get(id).token;
                             }
                         });
                         headers = Object(external_tslib_["__assign"])(Object(external_tslib_["__assign"])(Object(external_tslib_["__assign"])({}, additionalHeaders), contentTypeHeader), securityHeaders);
@@ -14071,13 +14074,15 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
                     case 2:
                         result = _d.sent();
                         this.setState({
-                            result: result
+                            result: result,
+                            fetching: false
                         });
                         return [3 /*break*/, 4];
                     case 3:
                         error_1 = _d.sent();
                         this.setState({
-                            result: error_1
+                            result: error_1,
+                            fetching: false
                         });
                         return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];
@@ -14085,7 +14090,8 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
             });
         }); };
         _this.state = {
-            result: null
+            result: null,
+            fetching: false
         };
         return _this;
     }
@@ -14166,7 +14172,7 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
             external_react_["createElement"]("h3", null, " Request "),
             hasBodySample && external_react_["createElement"](ConsoleEditor_ConsoleEditor, { mediaTypes: mediaTypes, ref: function (editor) { return _this.consoleEditor = editor; } }),
             external_react_["createElement"](FlexLayoutReverse, null,
-                external_react_["createElement"](SubmitButton, { onClick: this.onClickSend }, "Send Request")),
+                external_react_["createElement"](SubmitButton, { onClick: this.onClickSend, disabled: this.state.fetching }, this.state.fetching ? 'Fetching...' : 'Send Request')),
             result && external_react_["createElement"](Response_ConsoleResponse, { response: result }));
     };
     ConsoleViewer = Object(external_tslib_["__decorate"])([
