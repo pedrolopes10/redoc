@@ -1,7 +1,7 @@
 /*!
  * ReDoc - OpenAPI/Swagger-generated API Reference Documentation
  * -------------------------------------------------------------
- *   Version: "2.0.0-rc.27-fork-1"
+ *   Version: "2.0.0-rc.28-fork-3"
  *   Repo: https://github.com/Redocly/redoc
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -97,7 +97,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 89);
+/******/ 	return __webpack_require__(__webpack_require__.s = 90);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -170,12 +170,6 @@ module.exports = require("prismjs");
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = undefined;
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
 var g;
 
 // This works in non-strict mode
@@ -199,7 +193,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {// .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
@@ -505,22 +499,22 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(16)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15)))
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("prop-types");
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("marked");
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -708,6 +702,12 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+module.exports = undefined;
 
 /***/ }),
 /* 17 */
@@ -1043,7 +1043,7 @@ module.exports = require("perfect-scrollbar");
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(82);
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(83);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.i, "/*\n * Container style\n */\n.ps {\n  overflow: hidden !important;\n  overflow-anchor: none;\n  -ms-overflow-style: none;\n  touch-action: auto;\n  -ms-touch-action: auto;\n}\n\n/*\n * Scrollbar rail styles\n */\n.ps__rail-x {\n  display: none;\n  opacity: 0;\n  transition: background-color .2s linear, opacity .2s linear;\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\n  height: 15px;\n  /* there must be 'bottom' or 'top' for ps__rail-x */\n  bottom: 0px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__rail-y {\n  display: none;\n  opacity: 0;\n  transition: background-color .2s linear, opacity .2s linear;\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\n  width: 15px;\n  /* there must be 'right' or 'left' for ps__rail-y */\n  right: 0;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps--active-x > .ps__rail-x,\n.ps--active-y > .ps__rail-y {\n  display: block;\n  background-color: transparent;\n}\n\n.ps:hover > .ps__rail-x,\n.ps:hover > .ps__rail-y,\n.ps--focus > .ps__rail-x,\n.ps--focus > .ps__rail-y,\n.ps--scrolling-x > .ps__rail-x,\n.ps--scrolling-y > .ps__rail-y {\n  opacity: 0.6;\n}\n\n.ps .ps__rail-x:hover,\n.ps .ps__rail-y:hover,\n.ps .ps__rail-x:focus,\n.ps .ps__rail-y:focus,\n.ps .ps__rail-x.ps--clicking,\n.ps .ps__rail-y.ps--clicking {\n  background-color: #eee;\n  opacity: 0.9;\n}\n\n/*\n * Scrollbar thumb styles\n */\n.ps__thumb-x {\n  background-color: #aaa;\n  border-radius: 6px;\n  transition: background-color .2s linear, height .2s ease-in-out;\n  -webkit-transition: background-color .2s linear, height .2s ease-in-out;\n  height: 6px;\n  /* there must be 'bottom' for ps__thumb-x */\n  bottom: 2px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__thumb-y {\n  background-color: #aaa;\n  border-radius: 6px;\n  transition: background-color .2s linear, width .2s ease-in-out;\n  -webkit-transition: background-color .2s linear, width .2s ease-in-out;\n  width: 6px;\n  /* there must be 'right' for ps__thumb-y */\n  right: 2px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__rail-x:hover > .ps__thumb-x,\n.ps__rail-x:focus > .ps__thumb-x,\n.ps__rail-x.ps--clicking .ps__thumb-x {\n  background-color: #999;\n  height: 11px;\n}\n\n.ps__rail-y:hover > .ps__thumb-y,\n.ps__rail-y:focus > .ps__thumb-y,\n.ps__rail-y.ps--clicking .ps__thumb-y {\n  background-color: #999;\n  width: 11px;\n}\n\n/* MS supports */\n@supports (-ms-overflow-style: none) {\n  .ps {\n    overflow: auto !important;\n  }\n}\n\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {\n  .ps {\n    overflow: auto !important;\n  }\n}\n", ""]);
@@ -1064,7 +1064,7 @@ module.exports = exports;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-const sjs = __webpack_require__(11);
+const sjs = __webpack_require__(48);
 
 const colour = process.env.NODE_DISABLE_COLORS ?
     { red: '', yellow: '', green: '', normal: '' } :
@@ -1200,7 +1200,7 @@ module.exports = {
 };
 
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(16)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15)))
 
 /***/ }),
 /* 29 */
@@ -1217,9 +1217,9 @@ module.exports = {
 
 
 
-var base64 = __webpack_require__(52)
-var ieee754 = __webpack_require__(53)
-var isArray = __webpack_require__(54)
+var base64 = __webpack_require__(53)
+var ieee754 = __webpack_require__(54)
+var isArray = __webpack_require__(55)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -2997,7 +2997,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 30 */
@@ -3077,7 +3077,7 @@ function isFunction (value) {
 
 xhr = null // Help gc
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 31 */
@@ -3314,7 +3314,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 	}
 }
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(16), __webpack_require__(29).Buffer, __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15), __webpack_require__(29).Buffer, __webpack_require__(11)))
 
 /***/ }),
 /* 33 */
@@ -3341,7 +3341,7 @@ __webpack_require__.r(__webpack_exports__);
 
 try {
     // tslint:disable-next-line
-    __webpack_require__(81); // bundle into worker
+    __webpack_require__(82); // bundle into worker
 }
 catch (_) { } // nope
 /* just for better typings */
@@ -3471,11 +3471,11 @@ module.exports = require("json-schema-ref-parser");
 
 const fs = __webpack_require__(27);
 const url = __webpack_require__(5);
-const pathlib = __webpack_require__(13);
+const pathlib = __webpack_require__(12);
 
 const maybe = __webpack_require__(45);
-const fetch = __webpack_require__(11);
-const yaml = __webpack_require__(11);
+const fetch = __webpack_require__(16);
+const yaml = __webpack_require__(16);
 
 const jptr = __webpack_require__(17);
 const resolveInternal = jptr.jptr;
@@ -3484,12 +3484,12 @@ const clone = __webpack_require__(18).clone;
 const cclone = __webpack_require__(18).circularClone;
 const recurse = __webpack_require__(22).recurse;
 const resolver = __webpack_require__(46);
-const sw = __webpack_require__(48);
+const sw = __webpack_require__(49);
 const common = __webpack_require__(28);
 
-const statusCodes = __webpack_require__(49).statusCodes;
+const statusCodes = __webpack_require__(50).statusCodes;
 
-const ourVersion = __webpack_require__(58).version;
+const ourVersion = __webpack_require__(59).version;
 
 // TODO handle specification-extensions with plugins?
 
@@ -5020,7 +5020,7 @@ function convertUrl(url, options, callback) {
             console.warn('GET ' + url);
         }
         fetch(url, {agent:options.agent}).then(function (res) {
-            if (res.status !== 200) throw new S2OError(`Received status code ${res.status}`);
+            if (res.status !== 200) throw new S2OError(`Received status code ${res.status}: ${url}`);
             return res.text();
         }).then(function (body) {
             convertStr(body, options)
@@ -5163,11 +5163,11 @@ module.exports = require("call-me-maybe");
 
 
 const fs = __webpack_require__(27);
-const path = __webpack_require__(13);
+const path = __webpack_require__(12);
 const url = __webpack_require__(5);
 
-const fetch = __webpack_require__(11);
-const yaml = __webpack_require__(11);
+const fetch = __webpack_require__(16);
+const yaml = __webpack_require__(16);
 
 const jptr = __webpack_require__(17).jptr;
 const recurse = __webpack_require__(22).recurse;
@@ -5348,7 +5348,7 @@ function resolveExternal(root, pointer, options, callback) {
     else if (effectiveProtocol && effectiveProtocol.startsWith('http')) {
         return fetch(target, { agent: options.agent })
             .then(function (res) {
-                if (res.status !== 200) throw new Error(`Received status code ${res.status}`);
+                if (res.status !== 200) throw new Error(`Received status code ${res.status}: ${target}`);
                 return res.text();
             })
             .then(function (data) {
@@ -5775,6 +5775,12 @@ module.exports = {
 
 /***/ }),
 /* 48 */
+/***/ (function(module, exports) {
+
+module.exports = require("fast-safe-stringify");
+
+/***/ }),
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5905,13 +5911,13 @@ module.exports = {
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-const http = __webpack_require__(50);
+const http = __webpack_require__(51);
 
 const ours = {
     "default": "Default response",
@@ -5931,13 +5937,13 @@ module.exports = {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var ClientRequest = __webpack_require__(51)
+/* WEBPACK VAR INJECTION */(function(global) {var ClientRequest = __webpack_require__(52)
 var response = __webpack_require__(32)
-var extend = __webpack_require__(56)
-var statusCodes = __webpack_require__(57)
+var extend = __webpack_require__(57)
+var statusCodes = __webpack_require__(58)
 var url = __webpack_require__(5)
 
 var http = exports
@@ -6019,17 +6025,17 @@ http.METHODS = [
 	'UNLOCK',
 	'UNSUBSCRIBE'
 ]
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer, global, process) {var capability = __webpack_require__(30)
 var inherits = __webpack_require__(31)
 var response = __webpack_require__(32)
 var stream = __webpack_require__(33)
-var toArrayBuffer = __webpack_require__(55)
+var toArrayBuffer = __webpack_require__(56)
 
 var IncomingMessage = response.IncomingMessage
 var rStates = response.readyStates
@@ -6353,179 +6359,179 @@ var unsafeHeaders = [
 	'via'
 ]
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(29).Buffer, __webpack_require__(12), __webpack_require__(16)))
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-module.exports = require("base64-js");
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(29).Buffer, __webpack_require__(11), __webpack_require__(15)))
 
 /***/ }),
 /* 53 */
 /***/ (function(module, exports) {
 
-module.exports = require("ieee754");
+module.exports = require("base64-js");
 
 /***/ }),
 /* 54 */
 /***/ (function(module, exports) {
 
-module.exports = require("isarray");
+module.exports = require("ieee754");
 
 /***/ }),
 /* 55 */
 /***/ (function(module, exports) {
 
-module.exports = require("to-arraybuffer");
+module.exports = require("isarray");
 
 /***/ }),
 /* 56 */
 /***/ (function(module, exports) {
 
-module.exports = require("xtend");
+module.exports = require("to-arraybuffer");
 
 /***/ }),
 /* 57 */
 /***/ (function(module, exports) {
 
-module.exports = require("builtin-status-codes");
+module.exports = require("xtend");
 
 /***/ }),
 /* 58 */
-/***/ (function(module) {
+/***/ (function(module, exports) {
 
-module.exports = JSON.parse("{\"_args\":[[\"swagger2openapi@5.3.4\",\"c:\\\\sites\\\\redoc\"]],\"_from\":\"swagger2openapi@5.3.4\",\"_id\":\"swagger2openapi@5.3.4\",\"_inBundle\":false,\"_integrity\":\"sha512-4LSutujtmehQFkRG4MAObjnI414S8VHSZ2tDAT88XxK6LhgYWUcYGZ0LNDecx5mkxAn0gOdfCJY0MCUPKJDqlw==\",\"_location\":\"/swagger2openapi\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"swagger2openapi@5.3.4\",\"name\":\"swagger2openapi\",\"escapedName\":\"swagger2openapi\",\"rawSpec\":\"5.3.4\",\"saveSpec\":null,\"fetchSpec\":\"5.3.4\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/swagger2openapi/-/swagger2openapi-5.3.4.tgz\",\"_spec\":\"5.3.4\",\"_where\":\"c:\\\\sites\\\\redoc\",\"author\":{\"name\":\"Mike Ralphson\",\"email\":\"mike.ralphson@gmail.com\"},\"bin\":{\"swagger2openapi\":\"swagger2openapi.js\",\"oas-validate\":\"oas-validate.js\",\"boast\":\"boast.js\"},\"browserify\":{\"transform\":[[\"babelify\",{\"presets\":[\"es2015\"]}]]},\"bugs\":{\"url\":\"https://github.com/mermade/oas-kit/issues\"},\"dependencies\":{\"better-ajv-errors\":\"^0.6.1\",\"call-me-maybe\":\"^1.0.1\",\"node-fetch-h2\":\"^2.3.0\",\"node-readfiles\":\"^0.2.0\",\"oas-kit-common\":\"^1.0.7\",\"oas-resolver\":\"^2.2.8\",\"oas-schema-walker\":\"^1.1.3\",\"oas-validator\":\"^3.3.4\",\"reftools\":\"^1.0.11\",\"yaml\":\"^1.8.0\",\"yargs\":\"^12.0.5\"},\"description\":\"Convert Swagger 2.0 definitions to OpenApi 3.0 and validate\",\"gitHead\":\"3c04d8c190507d806746d45042fcb8d579dfb237\",\"homepage\":\"https://github.com/Mermade/oas-kit#readme\",\"keywords\":[\"swagger\",\"openapi\",\"openapi2\",\"openapi3\",\"converter\",\"conversion\",\"validator\",\"validation\",\"resolver\",\"lint\",\"linter\"],\"license\":\"BSD-3-Clause\",\"main\":\"index.js\",\"name\":\"swagger2openapi\",\"repository\":{\"url\":\"git+https://github.com/Mermade/oas-kit.git\",\"type\":\"git\"},\"scripts\":{\"test\":\"mocha\"},\"version\":\"5.3.4\"}");
+module.exports = require("builtin-status-codes");
 
 /***/ }),
 /* 59 */
-/***/ (function(module, exports) {
+/***/ (function(module) {
 
-module.exports = require("prismjs/components/prism-bash.js");
+module.exports = JSON.parse("{\"_from\":\"swagger2openapi@5.4.0\",\"_id\":\"swagger2openapi@5.4.0\",\"_inBundle\":false,\"_integrity\":\"sha512-f5QqfXawiVijhjMtYqWZ55ESHPZFqrPC8L9idhIiuSX8O2qsa1i4MVGtCM3TQF+Smzr/6WfT/7zBuzG3aTgPAA==\",\"_location\":\"/swagger2openapi\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"swagger2openapi@5.4.0\",\"name\":\"swagger2openapi\",\"escapedName\":\"swagger2openapi\",\"rawSpec\":\"5.4.0\",\"saveSpec\":null,\"fetchSpec\":\"5.4.0\"},\"_requiredBy\":[\"#USER\",\"/\"],\"_resolved\":\"https://registry.npmjs.org/swagger2openapi/-/swagger2openapi-5.4.0.tgz\",\"_shasum\":\"1e1c8909f7966b1f455bf1b66490093ac1c0029c\",\"_spec\":\"swagger2openapi@5.4.0\",\"_where\":\"C:\\\\sites\\\\redoc\",\"author\":{\"name\":\"Mike Ralphson\",\"email\":\"mike.ralphson@gmail.com\"},\"bin\":{\"swagger2openapi\":\"swagger2openapi.js\",\"oas-validate\":\"oas-validate.js\",\"boast\":\"boast.js\"},\"browserify\":{\"transform\":[[\"babelify\",{\"presets\":[\"es2015\"]}]]},\"bugs\":{\"url\":\"https://github.com/mermade/oas-kit/issues\"},\"bundleDependencies\":false,\"dependencies\":{\"better-ajv-errors\":\"^0.6.1\",\"call-me-maybe\":\"^1.0.1\",\"node-fetch-h2\":\"^2.3.0\",\"node-readfiles\":\"^0.2.0\",\"oas-kit-common\":\"^1.0.7\",\"oas-resolver\":\"^2.3.0\",\"oas-schema-walker\":\"^1.1.3\",\"oas-validator\":\"^3.4.0\",\"reftools\":\"^1.1.0\",\"yaml\":\"^1.8.3\",\"yargs\":\"^12.0.5\"},\"deprecated\":false,\"description\":\"Convert Swagger 2.0 definitions to OpenApi 3.0 and validate\",\"gitHead\":\"56775c59b1a2e7a8b77dc9e23821e70faf15bdb7\",\"homepage\":\"https://github.com/Mermade/oas-kit#readme\",\"keywords\":[\"swagger\",\"openapi\",\"openapi2\",\"openapi3\",\"converter\",\"conversion\",\"validator\",\"validation\",\"resolver\",\"lint\",\"linter\"],\"license\":\"BSD-3-Clause\",\"main\":\"index.js\",\"name\":\"swagger2openapi\",\"repository\":{\"url\":\"git+https://github.com/Mermade/oas-kit.git\",\"type\":\"git\"},\"scripts\":{\"test\":\"mocha\"},\"version\":\"5.4.0\"}");
 
 /***/ }),
 /* 60 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-c.js");
+module.exports = require("prismjs/components/prism-bash.js");
 
 /***/ }),
 /* 61 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-clike.js");
+module.exports = require("prismjs/components/prism-c.js");
 
 /***/ }),
 /* 62 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-coffeescript.js");
+module.exports = require("prismjs/components/prism-clike.js");
 
 /***/ }),
 /* 63 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-cpp.js");
+module.exports = require("prismjs/components/prism-coffeescript.js");
 
 /***/ }),
 /* 64 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-csharp.js");
+module.exports = require("prismjs/components/prism-cpp.js");
 
 /***/ }),
 /* 65 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-go.js");
+module.exports = require("prismjs/components/prism-csharp.js");
 
 /***/ }),
 /* 66 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-http.js");
+module.exports = require("prismjs/components/prism-go.js");
 
 /***/ }),
 /* 67 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-java.js");
+module.exports = require("prismjs/components/prism-http.js");
 
 /***/ }),
 /* 68 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-lua.js");
+module.exports = require("prismjs/components/prism-java.js");
 
 /***/ }),
 /* 69 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-markup-templating.js");
+module.exports = require("prismjs/components/prism-lua.js");
 
 /***/ }),
 /* 70 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-markup.js");
+module.exports = require("prismjs/components/prism-markup-templating.js");
 
 /***/ }),
 /* 71 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-objectivec.js");
+module.exports = require("prismjs/components/prism-markup.js");
 
 /***/ }),
 /* 72 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-perl.js");
+module.exports = require("prismjs/components/prism-objectivec.js");
 
 /***/ }),
 /* 73 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-php.js");
+module.exports = require("prismjs/components/prism-perl.js");
 
 /***/ }),
 /* 74 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-python.js");
+module.exports = require("prismjs/components/prism-php.js");
 
 /***/ }),
 /* 75 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-ruby.js");
+module.exports = require("prismjs/components/prism-python.js");
 
 /***/ }),
 /* 76 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-scala.js");
+module.exports = require("prismjs/components/prism-ruby.js");
 
 /***/ }),
 /* 77 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-sql.js");
+module.exports = require("prismjs/components/prism-scala.js");
 
 /***/ }),
 /* 78 */
 /***/ (function(module, exports) {
 
-module.exports = require("prismjs/components/prism-swift.js");
+module.exports = require("prismjs/components/prism-sql.js");
 
 /***/ }),
 /* 79 */
+/***/ (function(module, exports) {
+
+module.exports = require("prismjs/components/prism-swift.js");
+
+/***/ }),
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-				var addMethods = __webpack_require__(80)
+				var addMethods = __webpack_require__(81)
 				var methods = ["add","done","toJS","load","search"]
 				module.exports = function() {
-					var w = new Worker(__webpack_require__.p + "ba23e978910075a5c680.worker.js", { name: "[hash].worker.js" })
+					var w = new Worker(__webpack_require__.p + "6c6dea8cef6afef2a742.worker.js", { name: "[hash].worker.js" })
 					addMethods(w, methods)
 					
 					return w
@@ -6533,7 +6539,7 @@ module.exports = require("prismjs/components/prism-swift.js");
 			
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports) {
 
 function addMethods(worker, methods) {
@@ -6585,13 +6591,13 @@ module.exports = addMethods;
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/es/promise");
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6691,43 +6697,43 @@ function toComment(sourceMap) {
 }
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports) {
 
 module.exports = require("brace/mode/curly");
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports) {
 
 module.exports = require("brace/mode/json");
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports) {
 
 module.exports = require("brace/theme/github");
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports) {
 
 module.exports = require("brace/theme/monokai");
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports) {
 
 module.exports = require("qs");
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports) {
 
 module.exports = require("stickyfill");
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6895,7 +6901,7 @@ __webpack_require__.d(__webpack_exports__, "styled", function() { return /* reex
 var external_tslib_ = __webpack_require__(1);
 
 // EXTERNAL MODULE: external "prop-types"
-var external_prop_types_ = __webpack_require__(14);
+var external_prop_types_ = __webpack_require__(13);
 
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(0);
@@ -7679,12 +7685,12 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                         external_react_["createElement"]("pre", null, this.state.error.stack))),
                 external_react_["createElement"]("small", null,
                     " ReDoc Version: ",
-                    "2.0.0-rc.27-fork-1"),
+                    "2.0.0-rc.28-fork-3"),
                 " ",
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "cc8be45e"));
+                    "ab0b6358"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -7903,7 +7909,7 @@ Object.assign(JsonPointer_JsonPointer, external_json_pointer_);
 /* harmony default export */ var utils_JsonPointer = (JsonPointer_JsonPointer);
 
 // EXTERNAL MODULE: ./node_modules/path-browserify/index.js
-var path_browserify = __webpack_require__(13);
+var path_browserify = __webpack_require__(12);
 
 // EXTERNAL MODULE: external "url-template"
 var external_url_template_ = __webpack_require__(20);
@@ -8393,64 +8399,64 @@ function pluralizeType(displayType) {
 var external_prismjs_ = __webpack_require__(10);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-bash.js"
-var prism_bash_js_ = __webpack_require__(59);
+var prism_bash_js_ = __webpack_require__(60);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-c.js"
-var prism_c_js_ = __webpack_require__(60);
+var prism_c_js_ = __webpack_require__(61);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-clike.js"
-var prism_clike_js_ = __webpack_require__(61);
+var prism_clike_js_ = __webpack_require__(62);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-coffeescript.js"
-var prism_coffeescript_js_ = __webpack_require__(62);
+var prism_coffeescript_js_ = __webpack_require__(63);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-cpp.js"
-var prism_cpp_js_ = __webpack_require__(63);
+var prism_cpp_js_ = __webpack_require__(64);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-csharp.js"
-var prism_csharp_js_ = __webpack_require__(64);
+var prism_csharp_js_ = __webpack_require__(65);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-go.js"
-var prism_go_js_ = __webpack_require__(65);
+var prism_go_js_ = __webpack_require__(66);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-http.js"
-var prism_http_js_ = __webpack_require__(66);
+var prism_http_js_ = __webpack_require__(67);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-java.js"
-var prism_java_js_ = __webpack_require__(67);
+var prism_java_js_ = __webpack_require__(68);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-lua.js"
-var prism_lua_js_ = __webpack_require__(68);
+var prism_lua_js_ = __webpack_require__(69);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-markup-templating.js"
-var prism_markup_templating_js_ = __webpack_require__(69);
+var prism_markup_templating_js_ = __webpack_require__(70);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-markup.js"
-var prism_markup_js_ = __webpack_require__(70);
+var prism_markup_js_ = __webpack_require__(71);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-objectivec.js"
-var prism_objectivec_js_ = __webpack_require__(71);
+var prism_objectivec_js_ = __webpack_require__(72);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-perl.js"
-var prism_perl_js_ = __webpack_require__(72);
+var prism_perl_js_ = __webpack_require__(73);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-php.js"
-var prism_php_js_ = __webpack_require__(73);
+var prism_php_js_ = __webpack_require__(74);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-python.js"
-var prism_python_js_ = __webpack_require__(74);
+var prism_python_js_ = __webpack_require__(75);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-ruby.js"
-var prism_ruby_js_ = __webpack_require__(75);
+var prism_ruby_js_ = __webpack_require__(76);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-scala.js"
-var prism_scala_js_ = __webpack_require__(76);
+var prism_scala_js_ = __webpack_require__(77);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-sql.js"
-var prism_sql_js_ = __webpack_require__(77);
+var prism_sql_js_ = __webpack_require__(78);
 
 // EXTERNAL MODULE: external "prismjs/components/prism-swift.js"
-var prism_swift_js_ = __webpack_require__(78);
+var prism_swift_js_ = __webpack_require__(79);
 
 // CONCATENATED MODULE: ./src/utils/highlight.ts
 
@@ -8741,7 +8747,7 @@ var MarkerService_MarkerService = /** @class */ (function () {
 
 
 // EXTERNAL MODULE: external "marked"
-var external_marked_ = __webpack_require__(15);
+var external_marked_ = __webpack_require__(14);
 
 // CONCATENATED MODULE: ./src/services/MarkdownRenderer.ts
 
@@ -10684,7 +10690,7 @@ function getWorker() {
     if (IS_BROWSER) {
         try {
             // tslint:disable-next-line
-            worker = __webpack_require__(79);
+            worker = __webpack_require__(80);
         }
         catch (e) {
             worker = __webpack_require__(34).default;
@@ -11520,7 +11526,7 @@ function valueToHTML(value, maxExpandLevel) {
     }
     else if (valueType === 'string') {
         if (/^(http|https):\/\/[^\s]+$/.test(value)) {
-            output += decorateWithSpan('"', 'token string') + '<a href="' + value + '">' + htmlEncode(stringifyStringLiteral(value)) + '</a>' + decorateWithSpan('"', 'token string');
+            output += decorateWithSpan('"', 'token string') + '<a href="' + encodeURI(value) + '">' + htmlEncode(stringifyStringLiteral(value)) + '</a>' + decorateWithSpan('"', 'token string');
         }
         else {
             output += decorateWithSpan('"' + stringifyStringLiteral(value) + '"', 'token string');
@@ -11595,7 +11601,7 @@ var style_templateObject_1;
 
 
 
-var JsonViewerWrap = styled_components.div(JsonViewer_templateObject_1 || (JsonViewer_templateObject_1 = Object(external_tslib_["__makeTemplateObject"])(["\n  &:hover > ", " {\n    opacity: 1;\n  }\n"], ["\n  &:hover > ", " {\n    opacity: 1;\n  }\n"])), SampleControls);
+var JsonViewerWrap = styled_components.div(JsonViewer_templateObject_1 || (JsonViewer_templateObject_1 = Object(external_tslib_["__makeTemplateObject"])(["\n  &:hover > ", " {\n    opacity: 1;\n  }\n  ul.collapsible {\n    overflow: auto;\n  }\n"], ["\n  &:hover > ", " {\n    opacity: 1;\n  }\n  ul.collapsible {\n    overflow: auto;\n  }\n"])), SampleControls);
 var JsonViewer_Json = /** @class */ (function (_super) {
     Object(external_tslib_["__extends"])(Json, _super);
     function Json() {
@@ -13915,16 +13921,16 @@ var external_react_ace_ = __webpack_require__(44);
 var external_react_ace_default = /*#__PURE__*/__webpack_require__.n(external_react_ace_);
 
 // EXTERNAL MODULE: external "brace/mode/curly"
-var curly_ = __webpack_require__(83);
+var curly_ = __webpack_require__(84);
 
 // EXTERNAL MODULE: external "brace/mode/json"
-var json_ = __webpack_require__(84);
+var json_ = __webpack_require__(85);
 
 // EXTERNAL MODULE: external "brace/theme/github"
-var github_ = __webpack_require__(85);
+var github_ = __webpack_require__(86);
 
 // EXTERNAL MODULE: external "brace/theme/monokai"
-var monokai_ = __webpack_require__(86);
+var monokai_ = __webpack_require__(87);
 
 // CONCATENATED MODULE: ./src/components/Console/ConsoleEditorWrapper.ts
 
@@ -14012,7 +14018,7 @@ function getDefaultOrFirst(object) {
 
 
 
-var qs = __webpack_require__(87);
+var qs = __webpack_require__(88);
 var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
     Object(external_tslib_["__extends"])(ConsoleViewer, _super);
     function ConsoleViewer(props) {
@@ -14033,7 +14039,7 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
                         mediaType = content && content.mediaTypes[content.activeMimeIdx];
                         endpoint = {
                             method: operation.httpVerb,
-                            path: operation.servers[urlIndex].url + operation.path
+                            path: 'http://127.0.0.1:9000/' + operation.servers[urlIndex].url + operation.path
                         };
                         if (value) {
                             value = JSON.parse(value);
@@ -14160,7 +14166,7 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
         var result = this.state.result;
         return external_react_["createElement"]("div", null,
             external_react_["createElement"]("h3", null, " Request "),
-            hasBodySample && external_react_["createElement"](ConsoleEditor_ConsoleEditor, { mediaTypes: mediaTypes, ref: function (editor) { return _this.consoleEditor = editor; } }),
+            typeof window !== "undefined" && hasBodySample && external_react_["createElement"](ConsoleEditor_ConsoleEditor, { mediaTypes: mediaTypes, ref: function (editor) { return _this.consoleEditor = editor; } }),
             external_react_["createElement"](FlexLayoutReverse, null,
                 external_react_["createElement"](SubmitButton, { onClick: this.onClickSend, disabled: this.state.fetching }, this.state.fetching ? 'Fetching...' : 'Send Request')),
             result && external_react_["createElement"](Response_ConsoleResponse, { response: result }));
@@ -14526,7 +14532,7 @@ var ChevronSvg_templateObject_1;
 
 var Stickyfill;
 if (IS_BROWSER) {
-    Stickyfill = __webpack_require__(88);
+    Stickyfill = __webpack_require__(89);
 }
 var stickyfill = Stickyfill && Stickyfill();
 var StyledStickySidebar = styled_components.div(StickyResponsiveSidebar_templateObject_2 || (StickyResponsiveSidebar_templateObject_2 = Object(external_tslib_["__makeTemplateObject"])(["\n  width: ", ";\n  background-color: ", ";\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n\n  backface-visibility: hidden;\n  /* contain: strict; TODO: breaks layout since Chrome 80*/\n\n  height: 100vh;\n  position: sticky;\n  position: -webkit-sticky;\n  top: 0;\n\n  ", ";\n\n  @media print {\n    display: none;\n  }\n"], ["\n  width: ", ";\n  background-color: ", ";\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n\n  backface-visibility: hidden;\n  /* contain: strict; TODO: breaks layout since Chrome 80*/\n\n  height: 100vh;\n  position: sticky;\n  position: -webkit-sticky;\n  top: 0;\n\n  ",

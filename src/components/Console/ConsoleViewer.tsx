@@ -175,7 +175,7 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
     return (
       <div>
         <h3> Request </h3>
-        {hasBodySample && (
+        {typeof window !== "undefined" && hasBodySample && (
           <ConsoleEditor
             mediaTypes={mediaTypes}
             ref={(editor: any) => (this.consoleEditor = editor)}

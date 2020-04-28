@@ -17,6 +17,9 @@ const JsonViewerWrap = styled.div`
   &:hover > ${SampleControls} {
     opacity: 1;
   }
+  ul.collapsible {
+    overflow: auto;
+  }
 `;
 
 class Json extends React.PureComponent<JsonProps> {
