@@ -1,7 +1,7 @@
 /*!
  * ReDoc - OpenAPI/Swagger-generated API Reference Documentation
  * -------------------------------------------------------------
- *   Version: "2.0.0-rc.28-fork-5"
+ *   Version: "2.0.0-rc.28-fork-6"
  *   Repo: https://github.com/Redocly/redoc
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -7685,12 +7685,12 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                         external_react_["createElement"]("pre", null, this.state.error.stack))),
                 external_react_["createElement"]("small", null,
                     " ReDoc Version: ",
-                    "2.0.0-rc.28-fork-5"),
+                    "2.0.0-rc.28-fork-6"),
                 " ",
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "7ba641ff"));
+                    "ad1568bd"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -11601,7 +11601,7 @@ var style_templateObject_1;
 
 
 
-var JsonViewerWrap = styled_components.div(JsonViewer_templateObject_1 || (JsonViewer_templateObject_1 = Object(external_tslib_["__makeTemplateObject"])(["\n  &:hover > ", " {\n    opacity: 1;\n  }\n  ul.collapsible {\n    overflow: auto;\n  }\n"], ["\n  &:hover > ", " {\n    opacity: 1;\n  }\n  ul.collapsible {\n    overflow: auto;\n  }\n"])), SampleControls);
+var JsonViewerWrap = styled_components.div(JsonViewer_templateObject_1 || (JsonViewer_templateObject_1 = Object(external_tslib_["__makeTemplateObject"])(["\n  &:hover > ", " {\n    opacity: 1;\n  }\n  ul.collapsible {\n    overflow: auto;\n  }\n  ul.array.collapsible {\n    padding-left: 2em;\n  }\n"], ["\n  &:hover > ", " {\n    opacity: 1;\n  }\n  ul.collapsible {\n    overflow: auto;\n  }\n  ul.array.collapsible {\n    padding-left: 2em;\n  }\n"])), SampleControls);
 var JsonViewer_Json = /** @class */ (function (_super) {
     Object(external_tslib_["__extends"])(Json, _super);
     function Json() {

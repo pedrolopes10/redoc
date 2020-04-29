@@ -20,6 +20,9 @@ const JsonViewerWrap = styled.div`
   ul.collapsible {
     overflow: auto;
   }
+  ul.array.collapsible {
+    padding-left: 2em;
+  }
 `;
 
 class Json extends React.PureComponent<JsonProps> {
