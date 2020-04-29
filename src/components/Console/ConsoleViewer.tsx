@@ -48,6 +48,7 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
   onClickSend = async () => {
     this.setState({
       fetching: true,
+      result: null
     });
     const ace = this.consoleEditor && this.consoleEditor.editor;
     const {
@@ -65,9 +66,18 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
       method: operation.httpVerb,
       path: operation.servers[urlIndex].url + operation.path,
     };
-    if (value) {
-      value = JSON.parse(value);
+
+    try {
+      if (value) {
+        value = JSON.parse(value);
+      }
+    } catch (error) {
+      this.setState({
+        result: error,
+        fetching: false
+      });
     }
+
     const contentType = (mediaType && mediaType.name) || 'application/json';
     const contentTypeHeader = { 'Content-Type': contentType };
 
@@ -161,6 +171,12 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
       };
     } catch (error) {
       console.error(error);
+      return {
+        content: 'Request error, if the problem persist please contact support.',
+        ok: false,
+        status: 400,
+        statusText: 'Bad Request',
+      };
     }
   }
 
@@ -175,7 +191,7 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
     return (
       <div>
         <h3> Request </h3>
-        {typeof window !== "undefined" && hasBodySample && (
+        {hasBodySample && (
           <ConsoleEditor
             mediaTypes={mediaTypes}
             ref={(editor: any) => (this.consoleEditor = editor)}
