@@ -1,7 +1,7 @@
 /*!
  * ReDoc - OpenAPI/Swagger-generated API Reference Documentation
  * -------------------------------------------------------------
- *   Version: "2.0.0-rc.28-fork-3"
+ *   Version: "2.0.0-rc.28-fork-5"
  *   Repo: https://github.com/Redocly/redoc
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -7685,12 +7685,12 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                         external_react_["createElement"]("pre", null, this.state.error.stack))),
                 external_react_["createElement"]("small", null,
                     " ReDoc Version: ",
-                    "2.0.0-rc.28-fork-3"),
+                    "2.0.0-rc.28-fork-5"),
                 " ",
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "ab0b6358"));
+                    "7ba641ff"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -14030,7 +14030,8 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
                 switch (_d.label) {
                     case 0:
                         this.setState({
-                            fetching: true
+                            fetching: true,
+                            result: null
                         });
                         ace = this.consoleEditor && this.consoleEditor.editor;
                         _a = this.props, operation = _a.operation, schemes = _a.securitySchemes.schemes, _b = _a.additionalHeaders, additionalHeaders = _b === void 0 ? {} : _b, _c = _a.urlIndex, urlIndex = _c === void 0 ? 0 : _c;
@@ -14039,10 +14040,18 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
                         mediaType = content && content.mediaTypes[content.activeMimeIdx];
                         endpoint = {
                             method: operation.httpVerb,
-                            path: 'http://127.0.0.1:9000/' + operation.servers[urlIndex].url + operation.path
+                            path: operation.servers[urlIndex].url + operation.path
                         };
-                        if (value) {
-                            value = JSON.parse(value);
+                        try {
+                            if (value) {
+                                value = JSON.parse(value);
+                            }
+                        }
+                        catch (error) {
+                            this.setState({
+                                result: error,
+                                fetching: false
+                            });
                         }
                         contentType = mediaType && mediaType.name || 'application/json';
                         contentTypeHeader = {
@@ -14151,7 +14160,12 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
                     case 3:
                         error_2 = _c.sent();
                         console.error(error_2);
-                        return [3 /*break*/, 4];
+                        return [2 /*return*/, {
+                                content: 'Request error, if the problem persist please contact support.',
+                                ok: false,
+                                status: 400,
+                                statusText: 'Bad Request'
+                            }];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -14166,7 +14180,7 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
         var result = this.state.result;
         return external_react_["createElement"]("div", null,
             external_react_["createElement"]("h3", null, " Request "),
-            typeof window !== "undefined" && hasBodySample && external_react_["createElement"](ConsoleEditor_ConsoleEditor, { mediaTypes: mediaTypes, ref: function (editor) { return _this.consoleEditor = editor; } }),
+            hasBodySample && external_react_["createElement"](ConsoleEditor_ConsoleEditor, { mediaTypes: mediaTypes, ref: function (editor) { return _this.consoleEditor = editor; } }),
             external_react_["createElement"](FlexLayoutReverse, null,
                 external_react_["createElement"](SubmitButton, { onClick: this.onClickSend, disabled: this.state.fetching }, this.state.fetching ? 'Fetching...' : 'Send Request')),
             result && external_react_["createElement"](Response_ConsoleResponse, { response: result }));
