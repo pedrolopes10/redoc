@@ -10,7 +10,6 @@ import {
   PropertyCellWithInner,
   PropertyDetailsCell,
   PropertyNameCell,
-  WrappedShelfIcon,
 } from '../../common-elements/fields-layout';
 
 import { ShelfIcon, TextField } from '../../common-elements/';
@@ -38,12 +37,17 @@ export class Field extends React.Component<FieldProps> {
       this.props.field.toggle();
     }
   };
+  handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.toggle();
+    }
+  };
 
   onFieldChange = e => {
     console.log('Textfield value is ' + e.target.placeholder + ' - ' + e.target.value);
     this.props.field.setValue(e.target.value);
   };
-
   render() {
     const { className, field, isLast, expandByDefault } = this.props;
     const { name, deprecated, required, kind } = field;
@@ -53,22 +57,25 @@ export class Field extends React.Component<FieldProps> {
 
     const paramName = withSubSchema ? (
       <ClickablePropertyNameCell
-        onClick={this.toggle}
         className={deprecated ? 'deprecated' : ''}
         kind={kind}
         title={name}
       >
         <PropertyBullet />
-        {name}
-        <WrappedShelfIcon>
+        <button
+          onClick={this.toggle}
+          onKeyPress={this.handleKeyPress}
+          aria-label="expand properties"
+        >
+          <span>{name}</span>
           <ShelfIcon direction={expanded ? 'down' : 'right'} />
-        </WrappedShelfIcon>
+        </button>
         {required && <RequiredLabel> required </RequiredLabel>}
       </ClickablePropertyNameCell>
     ) : (
       <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
         <PropertyBullet />
-        {name}
+        <span>{name}</span>
         {required && <RequiredLabel> required </RequiredLabel>}
       </PropertyNameCell>
     );

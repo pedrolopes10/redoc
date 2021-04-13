@@ -1,12 +1,11 @@
 /* tslint:disable:no-implicit-dependencies */
-import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 import * as webpack from 'webpack';
-
 import * as path from 'path';
 
 const nodeExternals = require('webpack-node-externals')({
   // bundle in modules that need transpiling + non-js (e.g. css)
-  whitelist: [
+  allowlist: [
     'swagger2openapi',
     /reftools/,
     'oas-resolver',
@@ -21,10 +20,7 @@ let REVISION;
 
 try {
   REVISION = JSON.stringify(
-    require('child_process')
-      .execSync('git rev-parse --short HEAD')
-      .toString()
-      .trim(),
+    require('child_process').execSync('git rev-parse --short HEAD').toString().trim(),
   );
 } catch (e) {
   console.error('Skipping REDOC_REVISION');
@@ -44,23 +40,17 @@ export default (env: { standalone?: boolean } = {}, { mode }) => ({
     libraryTarget: 'umd',
     globalObject: 'this',
   },
-
   devtool: 'source-map',
-
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
-
   node: {
     fs: 'empty',
   },
-
   performance: false,
-
   optimization: {
     minimize: !!env.standalone,
   },
-
   externals: env.standalone
     ? {
         esprima: 'esprima',
@@ -145,7 +135,7 @@ export default (env: { standalone?: boolean } = {}, { mode }) => ({
       __REDOC_VERSION__: VERSION,
       __REDOC_REVISION__: REVISION,
     }),
-    new ForkTsCheckerWebpackPlugin({ silent: true }),
+    new ForkTsCheckerWebpackPlugin({ logger: { infrastructure: 'silent', issues: 'console' } }),
     new webpack.BannerPlugin(BANNER),
     ignore(/js-yaml\/dumper\.js$/),
     ignore(/json-schema-ref-parser\/lib\/dereference\.js/),

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ShelfIcon } from '../../common-elements';
 import { ClipboardService, OperationModel } from '../../services';
+import { Markdown } from '../Markdown/Markdown';
 import { OptionsContext } from '../OptionsProvider';
 import { SelectOnClick } from '../SelectOnClick/SelectOnClick';
 

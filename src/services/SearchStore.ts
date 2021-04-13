@@ -41,6 +41,7 @@ export class SearchStore<T> {
 
   dispose() {
     (this.searchWorker as any).terminate();
+    (this.searchWorker as any).dispose();
   }
 
   search(q: string) {
@@ -53,5 +54,11 @@ export class SearchStore<T> {
 
   load(state: any) {
     this.searchWorker.load(state);
+  }
+
+  fromExternalJS(path?: string, exportName?: string) {
+    if (path && exportName) {
+      this.searchWorker.fromExternalJS(path, exportName)
+    }
   }
 }

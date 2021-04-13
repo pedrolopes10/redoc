@@ -43,9 +43,10 @@ export class Schema extends React.Component<Partial<SchemaProps>> {
 
     if (discriminatorProp !== undefined) {
       if (!oneOf || !oneOf.length) {
-        throw new Error(
+        console.warn(
           `Looks like you are using discriminator wrong: you don't have any definition inherited from the ${schema.title}`,
         );
+        return null;
       }
       return (
         <ObjectSchema
@@ -64,7 +65,10 @@ export class Schema extends React.Component<Partial<SchemaProps>> {
 
     switch (type) {
       case 'object':
-        return <ObjectSchema {...(this.props as any)} />;
+        if (schema.fields?.length) {
+          return <ObjectSchema {...(this.props as any)} />;
+        }
+        break;
       case 'array':
         return <ArraySchema {...(this.props as any)} />;
     }

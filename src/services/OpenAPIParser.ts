@@ -5,6 +5,7 @@ import { OpenAPIRef, OpenAPISchema, OpenAPISpec, Referenced } from '../types';
 import { appendToMdHeading, IS_BROWSER } from '../utils/';
 import { JsonPointer } from '../utils/JsonPointer';
 import {
+  getDefinitionName,
   isNamedDefinition,
   SECURITY_DEFINITIONS_COMPONENT_NAME,
   SECURITY_DEFINITIONS_JSX_NAME,
@@ -150,6 +151,11 @@ export class OpenAPIParser {
    */
   deref<T extends object>(obj: OpenAPIRef | T, forceCircular = false): T {
     if (this.isRef(obj)) {
+      const schemaName = getDefinitionName(obj.$ref);
+      if (schemaName && this.options.ignoreNamedSchemas.has(schemaName)) {
+        return { type: 'object', title: schemaName } as T;
+      }
+
       const resolved = this.byRef<T>(obj.$ref)!;
       const visited = this._refCounter.visited(obj.$ref);
       this._refCounter.visit(obj.$ref);
@@ -202,7 +208,7 @@ export class OpenAPIParser {
       ...schema,
       allOf: undefined,
       parentRefs: [],
-      title: schema.title || (isNamedDefinition($ref) ? JsonPointer.baseName($ref) : undefined),
+      title: schema.title || getDefinitionName($ref),
     };
 
     // avoid mutating inner objects
@@ -214,7 +220,7 @@ export class OpenAPIParser {
     }
 
     const allOfSchemas = schema.allOf
-      .map(subSchema => {
+      .map((subSchema) => {
         if (subSchema && subSchema.$ref && used$Refs.has(subSchema.$ref)) {
           return undefined;
         }
@@ -239,7 +245,9 @@ export class OpenAPIParser {
         receiver.type !== undefined &&
         subSchema.type !== undefined
       ) {
-        throw new Error(`Incompatible types in allOf at "${$ref}"`);
+        console.warn(
+          `Incompatible types in allOf at "${$ref}": "${receiver.type}" and "${subSchema.type}"`,
+        );
       }
 
       if (subSchema.type !== undefined) {
@@ -253,10 +261,12 @@ export class OpenAPIParser {
             receiver.properties[prop] = subSchema.properties[prop];
           } else {
             // merge inner properties
-            receiver.properties[prop] = this.mergeAllOf(
+            const mergedProp = this.mergeAllOf(
               { allOf: [receiver.properties[prop], subSchema.properties[prop]] },
               $ref + '/properties/' + prop,
             );
+            receiver.properties[prop] = mergedProp
+            this.exitParents(mergedProp); // every prop resolution should have separate recursive stack
           }
         }
       }
@@ -296,8 +306,8 @@ export class OpenAPIParser {
    * returns map of definition pointer to definition name
    * @param $refs array of references to find derived from
    */
-  findDerived($refs: string[]): Dict<string[] | string> {
-    const res: Dict<string[]> = {};
+  findDerived($refs: string[]): Record<string, string[] | string> {
+    const res: Record<string, string[]> = {};
     const schemas = (this.spec.components && this.spec.components.schemas) || {};
     for (const defName in schemas) {
       const def = this.deref(schemas[defName]);

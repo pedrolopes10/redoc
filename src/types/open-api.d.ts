@@ -9,6 +9,7 @@ export interface OpenAPISpec {
   security?: OpenAPISecurityRequirement[];
   tags?: OpenAPITag[];
   externalDocs?: OpenAPIExternalDocumentation;
+  'x-webhooks'?: OpenAPIPaths;
 }
 
 export interface OpenAPIInfo {
@@ -76,7 +77,8 @@ export interface OpenAPIOperation {
   deprecated?: boolean;
   security?: OpenAPISecurityRequirement[];
   servers?: OpenAPIServer[];
-  'x-code-samples'?: OpenAPIXCodeSample[];
+  'x-codeSamples'?: OpenAPIXCodeSample[];
+  'x-code-samples'?: OpenAPIXCodeSample[]; // deprecated
 }
 
 export interface OpenAPIParameter {
@@ -93,6 +95,7 @@ export interface OpenAPIParameter {
   example?: any;
   examples?: { [media: string]: Referenced<OpenAPIExample> };
   content?: { [media: string]: OpenAPIMediaType };
+  encoding?: Record<string, OpenAPIEncoding>;
 }
 
 export interface OpenAPIExample {
@@ -225,22 +228,22 @@ export interface OpenAPISecurityScheme {
   flows: {
     implicit?: {
       refreshUrl?: string;
-      scopes: Dict<string>;
+      scopes: Record<string, string>;
       authorizationUrl: string;
     };
     password?: {
       refreshUrl?: string;
-      scopes: Dict<string>;
+      scopes: Record<string, string>;
       tokenUrl: string;
     };
     clientCredentials?: {
       refreshUrl?: string;
-      scopes: Dict<string>;
+      scopes: Record<string, string>;
       tokenUrl: string;
     };
     authorizationCode?: {
       refreshUrl?: string;
-      scopes: Dict<string>;
+      scopes: Record<string, string>;
       tokenUrl: string;
     };
   };

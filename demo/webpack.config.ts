@@ -1,5 +1,5 @@
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
-import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import { compact } from 'lodash';
 import { resolve } from 'path';
@@ -7,17 +7,14 @@ import * as webpack from 'webpack';
 
 const VERSION = JSON.stringify(require('../package.json').version);
 const REVISION = JSON.stringify(
-  require('child_process')
-    .execSync('git rev-parse --short HEAD')
-    .toString()
-    .trim(),
+  require('child_process').execSync('git rev-parse --short HEAD').toString().trim(),
 );
 
 function root(filename) {
   return resolve(__dirname + '/' + filename);
 }
 
-const tsLoader = env => ({
+const tsLoader = (env) => ({
   loader: 'ts-loader',
   options: {
     compilerOptions: {
@@ -27,7 +24,7 @@ const tsLoader = env => ({
   },
 });
 
-const babelLoader = mode => ({
+const babelLoader = () => ({
   loader: 'babel-loader',
   options: {
     generatorOpts: {
@@ -38,13 +35,6 @@ const babelLoader = mode => ({
       ['@babel/plugin-syntax-decorators', { legacy: true }],
       '@babel/plugin-syntax-dynamic-import',
       '@babel/plugin-syntax-jsx',
-      [
-        'babel-plugin-styled-components',
-        {
-          minify: true,
-          displayName: mode !== 'production',
-        },
-      ],
     ]),
   },
 });
@@ -110,8 +100,8 @@ export default (env: { playground?: boolean; bench?: boolean } = {}, { mode }) =
     alias:
       mode !== 'production'
         ? {
-            'react-dom': '@hot-loader/react-dom',
-          }
+          'react-dom': '@hot-loader/react-dom',
+        }
         : {},
   },
 
@@ -138,7 +128,7 @@ export default (env: { playground?: boolean; bench?: boolean } = {}, { mode }) =
         use: compact([
           mode !== 'production' ? babelHotLoader : undefined,
           tsLoader(env),
-          babelLoader(mode),
+          babelLoader(),
         ]),
         exclude: [/node_modules/],
       },
@@ -185,7 +175,9 @@ export default (env: { playground?: boolean; bench?: boolean } = {}, { mode }) =
     ignore(/js-yaml\/dumper\.js$/),
     ignore(/json-schema-ref-parser\/lib\/dereference\.js/),
     ignore(/^\.\/SearchWorker\.worker$/),
-    new CopyWebpackPlugin(['demo/openapi.yaml']),
+    new CopyWebpackPlugin({
+      patterns: ['demo/openapi.yaml'],
+    }),
   ],
 });
 

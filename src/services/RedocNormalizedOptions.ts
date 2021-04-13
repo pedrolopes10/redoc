@@ -14,6 +14,7 @@ export interface RedocRawOptions {
   expandResponses?: string | 'all';
   requiredPropsFirst?: boolean | string;
   sortPropsAlphabetically?: boolean | string;
+  sortEnumValuesAlphabetically?: boolean | string;
   noAutoAuth?: boolean | string;
   nativeScrollbars?: boolean | string;
   pathInMiddlePanel?: boolean | string;
@@ -27,6 +28,7 @@ export interface RedocRawOptions {
   menuToggle?: boolean | string;
   jsonSampleExpandLevel?: number | string | 'all';
   hideSchemaTitles?: boolean | string;
+  simpleOneOfTypeLabel?: boolean | string;
   payloadSampleIdx?: number;
   expandSingleSchemaField?: boolean | string;
 
@@ -37,13 +39,16 @@ export interface RedocRawOptions {
 
   unstable_ignoreMimeParameters?: boolean;
 
-  allowedMdComponents?: Dict<MDXComponentMeta>;
+  allowedMdComponents?: Record<string, MDXComponentMeta>;
 
   labels?: LabelsConfigRaw;
 
   enumSkipQuotes?: boolean | string;
 
   expandDefaultServerVariables?: boolean;
+  maxDisplayedEnumValues?: number;
+  ignoreNamedSchemas?: string[] | string;
+  hideSchemaPattern?: boolean;
 }
 
 function argValueToBoolean(val?: string | boolean, defaultValue?: boolean): boolean {
@@ -56,6 +61,16 @@ function argValueToBoolean(val?: string | boolean, defaultValue?: boolean): bool
   return val;
 }
 
+function argValueToNumber(value: number | string | undefined): number | undefined {
+  if (typeof value === 'string') {
+    return parseInt(value, 10);
+  }
+
+  if (typeof value === 'number') {
+    return value;
+  }
+}
+
 export class RedocNormalizedOptions {
   static normalizeExpandResponses(value: RedocRawOptions['expandResponses']) {
     if (value === 'all') {
@@ -63,7 +78,7 @@ export class RedocNormalizedOptions {
     }
     if (typeof value === 'string') {
       const res = {};
-      value.split(',').forEach(code => {
+      value.split(',').forEach((code) => {
         res[code.trim()] = true;
       });
       return res;
@@ -129,7 +144,7 @@ export class RedocNormalizedOptions {
       case 'false':
         return false;
       default:
-        return value.split(',').map(ext => ext.trim());
+        return value.split(',').map((ext) => ext.trim());
     }
   }
 
@@ -161,6 +176,7 @@ export class RedocNormalizedOptions {
   expandResponses: { [code: string]: boolean } | 'all';
   requiredPropsFirst: boolean;
   sortPropsAlphabetically: boolean;
+  sortEnumValuesAlphabetically: boolean;
   noAutoAuth: boolean;
   nativeScrollbars: boolean;
   pathInMiddlePanel: boolean;
@@ -174,6 +190,7 @@ export class RedocNormalizedOptions {
   jsonSampleExpandLevel: number;
   enumSkipQuotes: boolean;
   hideSchemaTitles: boolean;
+  simpleOneOfTypeLabel: boolean;
   payloadSampleIdx: number;
   enableConsole: boolean;
   additionalHeaders: object;
@@ -184,9 +201,13 @@ export class RedocNormalizedOptions {
   expandSingleSchemaField: boolean;
   /* tslint:disable-next-line */
   unstable_ignoreMimeParameters: boolean;
-  allowedMdComponents: Dict<MDXComponentMeta>;
+  allowedMdComponents: Record<string, MDXComponentMeta>;
 
   expandDefaultServerVariables: boolean;
+  maxDisplayedEnumValues?: number;
+
+  ignoreNamedSchemas: Set<string>;
+  hideSchemaPattern: boolean;
 
   constructor(raw: RedocRawOptions, defaults: RedocRawOptions = {}) {
     raw = { ...defaults, ...raw };
@@ -217,6 +238,7 @@ export class RedocNormalizedOptions {
     this.expandResponses = RedocNormalizedOptions.normalizeExpandResponses(raw.expandResponses);
     this.requiredPropsFirst = argValueToBoolean(raw.requiredPropsFirst);
     this.sortPropsAlphabetically = argValueToBoolean(raw.sortPropsAlphabetically);
+    this.sortEnumValuesAlphabetically = argValueToBoolean(raw.sortEnumValuesAlphabetically);
     this.noAutoAuth = argValueToBoolean(raw.noAutoAuth);
     this.nativeScrollbars = argValueToBoolean(raw.nativeScrollbars);
     this.pathInMiddlePanel = argValueToBoolean(raw.pathInMiddlePanel);
@@ -232,6 +254,7 @@ export class RedocNormalizedOptions {
     );
     this.enumSkipQuotes = argValueToBoolean(raw.enumSkipQuotes);
     this.hideSchemaTitles = argValueToBoolean(raw.hideSchemaTitles);
+    this.simpleOneOfTypeLabel = argValueToBoolean(raw.simpleOneOfTypeLabel);
     this.payloadSampleIdx = RedocNormalizedOptions.normalizePayloadSampleIdx(raw.payloadSampleIdx);
     this.expandSingleSchemaField = argValueToBoolean(raw.expandSingleSchemaField);
     this.enableConsole = argValueToBoolean(raw.enableConsole);
@@ -241,11 +264,16 @@ export class RedocNormalizedOptions {
     this.queryParamPrefix = raw.queryParamPrefix || '{';
     this.queryParamSuffix = raw.queryParamSuffix || '}';
 
-    // eslint-disable-next-line @typescript-eslint/camelcase
     this.unstable_ignoreMimeParameters = argValueToBoolean(raw.unstable_ignoreMimeParameters);
 
     this.allowedMdComponents = raw.allowedMdComponents || {};
 
     this.expandDefaultServerVariables = argValueToBoolean(raw.expandDefaultServerVariables);
+    this.maxDisplayedEnumValues = argValueToNumber(raw.maxDisplayedEnumValues);
+    const ignoreNamedSchemas = Array.isArray(raw.ignoreNamedSchemas)
+      ? raw.ignoreNamedSchemas
+      : raw.ignoreNamedSchemas?.split(',').map((s) => s.trim());
+    this.ignoreNamedSchemas = new Set(ignoreNamedSchemas);
+    this.hideSchemaPattern = argValueToBoolean(raw.hideSchemaPattern);
   }
 }

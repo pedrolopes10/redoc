@@ -62,17 +62,18 @@ export class Operation extends React.Component<OperationProps, OperationState> {
     const { operation, securitySchemes } = this.props;
     const { executeMode, urlIndex } = this.state;
 
-    const { name: summary, description, deprecated, externalDocs } = operation;
+    const { name: summary, description, deprecated, externalDocs, isWebhook } = operation;
     const hasDescription = !!(description || externalDocs);
 
     return (
       <OptionsContext.Consumer>
-        {options => (
+        {(options) => (
           <OperationRow>
             <MiddlePanel>
               <H2>
                 <ShareLink to={operation.id} />
                 {summary} {deprecated && <Badge type="warning"> Deprecated </Badge>}
+                {isWebhook && <Badge type="primary"> Webhook </Badge>}
               </H2>
               {options.enableConsole && (
                 <SwitchBox
@@ -81,9 +82,7 @@ export class Operation extends React.Component<OperationProps, OperationState> {
                   label="Try it out!"
                 />
               )}
-              {options.pathInMiddlePanel && (
-                <Endpoint operation={operation} inverted={true} handleUrl={this.onUrlChanged} />
-              )}
+              {options.pathInMiddlePanel && <Endpoint operation={operation}  handleUrl={this.onUrlChanged} inverted={true} />}
               {hasDescription && (
                 <Description>
                   {description !== undefined && <Markdown source={description} />}

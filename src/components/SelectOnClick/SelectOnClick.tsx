@@ -2,21 +2,22 @@ import * as React from 'react';
 
 import { ClipboardService } from '../../services';
 
-interface SelectOnClickProps {
-  onSelectUrl: () => void;
-}
-
-export class SelectOnClick extends React.PureComponent<SelectOnClickProps> {
+export class SelectOnClick extends React.PureComponent {
   private child: HTMLDivElement | null;
-  handleClick = () => {
+  selectElement = () => {
     ClipboardService.selectElement(this.child);
-    this.props.onSelectUrl();
   };
 
   render() {
     const { children } = this.props;
     return (
-      <div style={{ width: '100%' }} ref={el => (this.child = el)} onClick={this.handleClick.bind(this, children)}>
+      <div
+        ref={el => (this.child = el)}
+        onClick={this.selectElement}
+        onFocus={this.selectElement}
+        tabIndex={0}
+        role="button"
+      >
         {children}
       </div>
     );

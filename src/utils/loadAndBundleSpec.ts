@@ -1,33 +1,37 @@
-import * as JsonSchemaRefParser from 'json-schema-ref-parser';
+import { Source, Document, bundle, Config } from '@redocly/openapi-core';
 /* tslint:disable-next-line:no-implicit-dependencies */
 import { convertObj } from 'swagger2openapi';
 import { OpenAPISpec } from '../types';
+import { IS_BROWSER } from './dom';
 
 export async function loadAndBundleSpec(specUrlOrObject: object | string): Promise<OpenAPISpec> {
-  const parser = new JsonSchemaRefParser();
-  const spec = (await parser.bundle(specUrlOrObject, {
-    resolve: { http: { withCredentials: false } },
-  } as object)) as any;
-
-  let v2Specs = spec;
-  if (spec.swagger !== undefined) {
-    v2Specs = await convertSwagger2OpenAPI(spec);
+  const config = new Config({});
+  const bundleOpts = {
+    config,
+    base: IS_BROWSER ? window.location.href : process.cwd()
   }
 
-  // we can derefrence the schema here for future use.
-  // import { cloneDeep } from 'lodash';
-  // const derefrencedSpec = await parser.dereference(cloneDeep(spec));
-  // const derefed = await parser.dereference(v2Specs, {
-  //  resolve: { http: { withCredentials: false } },
-  // } as object);
+  if (IS_BROWSER) {
+    config.resolve.http.customFetch = global.fetch;
+  }
 
-  return v2Specs;
+  if (typeof specUrlOrObject === 'object' && specUrlOrObject !== null) {
+    bundleOpts['doc'] = {
+      source: { absoluteRef: '' } as Source,
+      parsed: specUrlOrObject
+    } as Document
+  } else {
+    bundleOpts['ref'] = specUrlOrObject;
+  }
+
+  const { bundle: { parsed } } = await bundle(bundleOpts);
+  return parsed.swagger !== undefined ? convertSwagger2OpenAPI(parsed) : parsed;
 }
 
 export function convertSwagger2OpenAPI(spec: any): Promise<OpenAPISpec> {
   console.warn('[ReDoc Compatibility mode]: Converting OpenAPI 2.0 to OpenAPI 3.0');
   return new Promise<OpenAPISpec>((resolve, reject) =>
-    convertObj(spec, { patch: true, warnOnly: true, text: '{}' }, (err, res) => {
+    convertObj(spec, { patch: true, warnOnly: true, text: '{}', anchors: true }, (err, res) => {
       // TODO: log any warnings
       if (err) {
         return reject(err);
