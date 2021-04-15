@@ -1,10 +1,10 @@
 {
   "name": "redoc",
-  "version": "2.0.0-rc.53",
+  "version": "2.0.0-rc.53-fork-1",
   "description": "ReDoc",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Redocly/redoc"
+    "url": "git://github.com/pedrolopes10/redoc"
   },
   "engines": {
     "node": ">=6.9",
@@ -137,6 +137,7 @@
     "@redocly/openapi-core": "^1.0.0-beta.44",
     "@redocly/react-dropdown-aria": "^2.0.11",
     "@types/node": "^13.11.1",
+    "brace": "^0.11.1",
     "classnames": "^2.2.6",
     "decko": "^1.2.0",
     "dompurify": "^2.0.12",
@@ -152,6 +153,8 @@
     "polished": "^3.6.5",
     "prismjs": "^1.22.0",
     "prop-types": "^15.7.2",
+    "react-ace": "^9.4.0",
+    "react-switch": "^6.0.0",
     "react-tabs": "^3.1.1",
     "slugify": "^1.4.4",
     "stickyfill": "^1.1.1",

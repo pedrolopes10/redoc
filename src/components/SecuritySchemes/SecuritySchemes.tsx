@@ -1,3 +1,4 @@
+import { Dictionary } from 'lodash';
 import { observer } from 'mobx-react';
 import * as React from 'react';
 import { TokenGroup } from '..';
@@ -70,7 +71,7 @@ export interface SecurityDefsProps {
 }
 
 export interface SecurityDefsState {
-  tokens: Dict<string>;
+  tokens: Dictionary<string>;
 }
 
 @observer

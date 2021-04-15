@@ -52,6 +52,7 @@ export class FieldModel {
   deprecated: boolean;
   in?: OpenAPIParameterLocation;
   kind: string;
+  value: string;
   extensions?: Record<string, any>;
   explode: boolean;
   style?: OpenAPIParameterStyle;
@@ -116,5 +117,10 @@ export class FieldModel {
   @action
   toggle() {
     this.expanded = !this.expanded;
+  }
+
+  @action
+  setValue(value) {
+    this.value = value;
   }
 }

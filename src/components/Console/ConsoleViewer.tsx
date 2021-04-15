@@ -86,7 +86,7 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
       schemeMapper.set(scheme.id, scheme);
     });
 
-    const securityHeaders: Dict<string | undefined> = {};
+    const securityHeaders = {};
 
     operation.security.forEach(({ schemes: [{ id }] }) => {
       if (schemeMapper.has(id)) {
@@ -122,11 +122,11 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
     for (const fieldModel of params) {
       if (
         url.indexOf(`${queryParamPrefix}${fieldModel.name}${queryParamSuffix}`) > -1 &&
-        fieldModel.$value.length > 0
+        fieldModel.value.length > 0
       ) {
         url = url.replace(
           `${queryParamPrefix}${fieldModel.name}${queryParamSuffix}`,
-          fieldModel.$value,
+          fieldModel.value,
         );
       }
     }
