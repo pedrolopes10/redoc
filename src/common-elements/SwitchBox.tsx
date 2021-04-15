@@ -32,7 +32,7 @@ export class SwitchBox extends React.PureComponent<TryItOutProps> {
     return (
       <CustomFlexLayout>
         <Switch id={this.id} onChange={onClick} checked={checked} uncheckedIcon={false} />
-        <Label active={checked} htmlFor={this.id}>
+        <Label active={checked} htmlFor={this.id} style={{marginLeft: 10}}>
           {label}
         </Label>
       </CustomFlexLayout>

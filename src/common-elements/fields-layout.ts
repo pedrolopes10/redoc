@@ -11,31 +11,21 @@ export const PropertiesTableCaption = styled.caption`
 `;
 
 export const PropertyCell = styled.td<{ kind?: string }>`
-  border-left: ${({ theme }) =>
-    theme.typography.direction === 'rtl' ? 0 : '1px solid '} ${props =>
-  props.theme.schema.linesColor};
-  border-right: ${({ theme }) =>
-    theme.typography.direction === 'rtl' ? '1px solid ' : 0} ${props =>
-  props.theme.schema.linesColor};
+  border-left: 1px solid ${props => props.theme.schema.linesColor};
   box-sizing: border-box;
   position: relative;
-  padding: ${({ theme }) =>
-    theme.typography.direction === 'rtl' ? '10px 0 10px 10px' : '10px 10px 10px 0'}
-
+  padding: 10px 10px 10px 0;
   ${media.lessThan('small')`
     display: block;
     overflow: hidden;
   `}
-
   tr:first-of-type > &,
   tr.last > & {
-    border-width: 0;
-    background-position: ${({ theme }) =>
-      theme.typography.direction === 'rtl' ? 'top right' : 'top left'};
+    border-left-width: 0;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: 1px 100%;
   }
-
   tr:first-of-type > & {
     background-image: linear-gradient(
       to bottom,
@@ -45,7 +35,6 @@ export const PropertyCell = styled.td<{ kind?: string }>`
       ${props => props.theme.schema.linesColor} 100%
     );
   }
-
   tr.last > & {
     background-image: linear-gradient(
       to bottom,
@@ -55,11 +44,9 @@ export const PropertyCell = styled.td<{ kind?: string }>`
       transparent 100%
     );
   }
-
   tr.last + tr > & {
     border-left-color: transparent;
   }
-
   tr.last:first-child > & {
     background: none;
     border-left-color: transparent;
@@ -76,13 +63,10 @@ export const PropertyNameCell = styled(PropertyCell)`
   white-space: nowrap;
   font-size: 13px;
   font-family: ${(props) => props.theme.typography.code.fontFamily};
-
   &.deprecated {
     ${deprecatedCss};
   }
-
   ${({ kind }) => (kind !== 'field' ? 'font-style: italic' : '')};
-
   ${extensionsHook('PropertyNameCell')};
 `;
 
@@ -91,30 +75,24 @@ export const PropertyDetailsCell = styled.td`
   padding: 10px 0;
   width: ${(props) => props.theme.schema.defaultDetailsWidth};
   box-sizing: border-box;
-  direction: ltr;
-
   tr.expanded & {
     border-bottom: none;
   }
-
   ${media.lessThan('small')`
     padding: 0 20px;
     border-bottom: none;
     border-left: 1px solid ${(props) => props.theme.schema.linesColor};
-
     tr.last > & {
       border-left: none;
     }
   `}
-
   ${extensionsHook('PropertyDetailsCell')};
 `;
 
 export const PropertyBullet = styled.span`
   color: ${props => props.theme.schema.linesColor};
   font-family: ${props => props.theme.typography.code.fontFamily};
-  margin: ${({ theme }) => (theme.typography.direction === 'rtl' ? '0 0 0 10px ' : '0 10px 0 0')}
-
+  margin-right: 10px;
   &::before {
     content: '';
     display: inline-block;
@@ -123,7 +101,6 @@ export const PropertyBullet = styled.span`
     height: 1px;
     background: ${props => props.theme.schema.linesColor};
   }
-
   &::after {
     content: '';
     display: inline-block;
@@ -133,9 +110,7 @@ export const PropertyBullet = styled.span`
     height: 7px;
   }
 `;
-export const WrappedShelfIcon = styled.i`
-  display: inline-block;
-`;
+
 export const InnerPropertiesWrap = styled.div`
   padding: ${({ theme }) => theme.schema.nestingSpacing};
 `;
@@ -144,28 +119,23 @@ export const PropertiesTable = styled.table`
   border-collapse: separate;
   border-radius: 3px;
   font-size: ${props => props.theme.typography.fontSize};
-
   border-spacing: 0;
   width: 100%;
-
   > tr {
     vertical-align: middle;
   }
-
   ${media.lessThan('small')`
     display: block;
     > tr, > tbody > tr {
       display: block;
     }
   `}
-
   ${media.lessThan('small', false, ' and (-ms-high-contrast:none)')`
     td {
       float: left;
       width: 100%;
     }
   `}
-
   &
     ${InnerPropertiesWrap},
     &
@@ -182,7 +152,6 @@ export const PropertiesTable = styled.table`
     margin-right: 0;
     background: ${({ theme }) => theme.schema.nestedBackground};
   }
-
   &
     ${InnerPropertiesWrap}
     ${InnerPropertiesWrap},

@@ -1,7 +1,7 @@
 /*!
  * ReDoc - OpenAPI/Swagger-generated API Reference Documentation
  * -------------------------------------------------------------
- *   Version: "2.0.0-rc.53-fork-1"
+ *   Version: "2.0.0-rc.53-fork-2"
  *   Repo: https://github.com/Redocly/redoc
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -7933,12 +7933,12 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                         external_react_["createElement"]("pre", null, this.state.error.stack))),
                 external_react_["createElement"]("small", null,
                     " ReDoc Version: ",
-                    "2.0.0-rc.53-fork-1"),
+                    "2.0.0-rc.53-fork-2"),
                 " ",
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "95762ad8"));
+                    "2693e32e"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -11301,55 +11301,34 @@ var mixins_templateObject_1;
 
 
 var PropertiesTableCaption = styled_components.caption(fields_layout_templateObject_1 || (fields_layout_templateObject_1 = Object(external_tslib_["__makeTemplateObject"])(["\n  text-align: right;\n  font-size: 0.9em;\n  font-weight: normal;\n  color: ", ";\n"], ["\n  text-align: right;\n  font-size: 0.9em;\n  font-weight: normal;\n  color: ", ";\n"])), function (props) { return props.theme.colors.text.secondary; });
-var PropertyCell = styled_components.td(fields_layout_templateObject_3 || (fields_layout_templateObject_3 = Object(external_tslib_["__makeTemplateObject"])(["\n  border-left: ", " ", ";\n  border-right: ", " ", ";\n  box-sizing: border-box;\n  position: relative;\n  padding: ", "\n\n  ", "\n\n  tr:first-of-type > &,\n  tr.last > & {\n    border-width: 0;\n    background-position: ", ";\n    background-repeat: no-repeat;\n    background-size: 1px 100%;\n  }\n\n  tr:first-of-type > & {\n    background-image: linear-gradient(\n      to bottom,\n      transparent 0%,\n      transparent 22px,\n      ", " 22px,\n      ", " 100%\n    );\n  }\n\n  tr.last > & {\n    background-image: linear-gradient(\n      to bottom,\n      ", " 0%,\n      ", " 22px,\n      transparent 22px,\n      transparent 100%\n    );\n  }\n\n  tr.last + tr > & {\n    border-left-color: transparent;\n  }\n\n  tr.last:first-child > & {\n    background: none;\n    border-left-color: transparent;\n  }\n"], ["\n  border-left: ",
-    " ", ";\n  border-right: ",
-    " ", ";\n  box-sizing: border-box;\n  position: relative;\n  padding: ",
-    "\n\n  ",
-    "\n\n  tr:first-of-type > &,\n  tr.last > & {\n    border-width: 0;\n    background-position: ",
-    ";\n    background-repeat: no-repeat;\n    background-size: 1px 100%;\n  }\n\n  tr:first-of-type > & {\n    background-image: linear-gradient(\n      to bottom,\n      transparent 0%,\n      transparent 22px,\n      ", " 22px,\n      ", " 100%\n    );\n  }\n\n  tr.last > & {\n    background-image: linear-gradient(\n      to bottom,\n      ", " 0%,\n      ", " 22px,\n      transparent 22px,\n      transparent 100%\n    );\n  }\n\n  tr.last + tr > & {\n    border-left-color: transparent;\n  }\n\n  tr.last:first-child > & {\n    background: none;\n    border-left-color: transparent;\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.typography.direction === 'rtl' ? 0 : '1px solid ';
-}, function (props) { return props.theme.schema.linesColor; }, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.direction === 'rtl' ? '1px solid ' : 0;
-}, function (props) { return props.theme.schema.linesColor; }, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.direction === 'rtl' ? '10px 0 10px 10px' : '10px 10px 10px 0';
-}, media.lessThan('small')(fields_layout_templateObject_2 || (fields_layout_templateObject_2 = Object(external_tslib_["__makeTemplateObject"])(["\n    display: block;\n    overflow: hidden;\n  "], ["\n    display: block;\n    overflow: hidden;\n  "]))), function (_a) {
-    var theme = _a.theme;
-    return theme.typography.direction === 'rtl' ? 'top right' : 'top left';
-}, function (props) { return props.theme.schema.linesColor; }, function (props) { return props.theme.schema.linesColor; }, function (props) { return props.theme.schema.linesColor; }, function (props) { return props.theme.schema.linesColor; });
+var PropertyCell = styled_components.td(fields_layout_templateObject_3 || (fields_layout_templateObject_3 = Object(external_tslib_["__makeTemplateObject"])(["\n  border-left: 1px solid ", ";\n  box-sizing: border-box;\n  position: relative;\n  padding: 10px 10px 10px 0;\n  ", "\n  tr:first-of-type > &,\n  tr.last > & {\n    border-left-width: 0;\n    background-position: top left;\n    background-repeat: no-repeat;\n    background-size: 1px 100%;\n  }\n  tr:first-of-type > & {\n    background-image: linear-gradient(\n      to bottom,\n      transparent 0%,\n      transparent 22px,\n      ", " 22px,\n      ", " 100%\n    );\n  }\n  tr.last > & {\n    background-image: linear-gradient(\n      to bottom,\n      ", " 0%,\n      ", " 22px,\n      transparent 22px,\n      transparent 100%\n    );\n  }\n  tr.last + tr > & {\n    border-left-color: transparent;\n  }\n  tr.last:first-child > & {\n    background: none;\n    border-left-color: transparent;\n  }\n"], ["\n  border-left: 1px solid ", ";\n  box-sizing: border-box;\n  position: relative;\n  padding: 10px 10px 10px 0;\n  ",
+    "\n  tr:first-of-type > &,\n  tr.last > & {\n    border-left-width: 0;\n    background-position: top left;\n    background-repeat: no-repeat;\n    background-size: 1px 100%;\n  }\n  tr:first-of-type > & {\n    background-image: linear-gradient(\n      to bottom,\n      transparent 0%,\n      transparent 22px,\n      ", " 22px,\n      ", " 100%\n    );\n  }\n  tr.last > & {\n    background-image: linear-gradient(\n      to bottom,\n      ", " 0%,\n      ", " 22px,\n      transparent 22px,\n      transparent 100%\n    );\n  }\n  tr.last + tr > & {\n    border-left-color: transparent;\n  }\n  tr.last:first-child > & {\n    background: none;\n    border-left-color: transparent;\n  }\n"])), function (props) { return props.theme.schema.linesColor; }, media.lessThan('small')(fields_layout_templateObject_2 || (fields_layout_templateObject_2 = Object(external_tslib_["__makeTemplateObject"])(["\n    display: block;\n    overflow: hidden;\n  "], ["\n    display: block;\n    overflow: hidden;\n  "]))), function (props) { return props.theme.schema.linesColor; }, function (props) { return props.theme.schema.linesColor; }, function (props) { return props.theme.schema.linesColor; }, function (props) { return props.theme.schema.linesColor; });
 var PropertyCellWithInner = styled_components(PropertyCell)(fields_layout_templateObject_4 || (fields_layout_templateObject_4 = Object(external_tslib_["__makeTemplateObject"])(["\n  padding: 0;\n"], ["\n  padding: 0;\n"])));
-var PropertyNameCell = styled_components(PropertyCell)(fields_layout_templateObject_5 || (fields_layout_templateObject_5 = Object(external_tslib_["__makeTemplateObject"])(["\n  vertical-align: top;\n  line-height: 20px;\n  white-space: nowrap;\n  font-size: 13px;\n  font-family: ", ";\n\n  &.deprecated {\n    ", ";\n  }\n\n  ", ";\n\n  ", ";\n"], ["\n  vertical-align: top;\n  line-height: 20px;\n  white-space: nowrap;\n  font-size: 13px;\n  font-family: ", ";\n\n  &.deprecated {\n    ", ";\n  }\n\n  ",
-    ";\n\n  ", ";\n"])), function (props) { return props.theme.typography.code.fontFamily; }, deprecatedCss, function (_a) {
+var PropertyNameCell = styled_components(PropertyCell)(fields_layout_templateObject_5 || (fields_layout_templateObject_5 = Object(external_tslib_["__makeTemplateObject"])(["\n  vertical-align: top;\n  line-height: 20px;\n  white-space: nowrap;\n  font-size: 13px;\n  font-family: ", ";\n  &.deprecated {\n    ", ";\n  }\n  ", ";\n  ", ";\n"], ["\n  vertical-align: top;\n  line-height: 20px;\n  white-space: nowrap;\n  font-size: 13px;\n  font-family: ", ";\n  &.deprecated {\n    ", ";\n  }\n  ",
+    ";\n  ", ";\n"])), function (props) { return props.theme.typography.code.fontFamily; }, deprecatedCss, function (_a) {
     var kind = _a.kind;
     return kind !== 'field' ? 'font-style: italic' : '';
 }, extensionsHook('PropertyNameCell'));
-var PropertyDetailsCell = styled_components.td(fields_layout_templateObject_7 || (fields_layout_templateObject_7 = Object(external_tslib_["__makeTemplateObject"])(["\n  border-bottom: 1px solid #9fb4be;\n  padding: 10px 0;\n  width: ", ";\n  box-sizing: border-box;\n  direction: ltr;\n\n  tr.expanded & {\n    border-bottom: none;\n  }\n\n  ", "\n\n  ", ";\n"], ["\n  border-bottom: 1px solid #9fb4be;\n  padding: 10px 0;\n  width: ", ";\n  box-sizing: border-box;\n  direction: ltr;\n\n  tr.expanded & {\n    border-bottom: none;\n  }\n\n  ",
-    "\n\n  ", ";\n"])), function (props) { return props.theme.schema.defaultDetailsWidth; }, media.lessThan('small')(fields_layout_templateObject_6 || (fields_layout_templateObject_6 = Object(external_tslib_["__makeTemplateObject"])(["\n    padding: 0 20px;\n    border-bottom: none;\n    border-left: 1px solid ", ";\n\n    tr.last > & {\n      border-left: none;\n    }\n  "], ["\n    padding: 0 20px;\n    border-bottom: none;\n    border-left: 1px solid ", ";\n\n    tr.last > & {\n      border-left: none;\n    }\n  "])), function (props) { return props.theme.schema.linesColor; }), extensionsHook('PropertyDetailsCell'));
-var PropertyBullet = styled_components.span(fields_layout_templateObject_8 || (fields_layout_templateObject_8 = Object(external_tslib_["__makeTemplateObject"])(["\n  color: ", ";\n  font-family: ", ";\n  margin: ", "\n\n  &::before {\n    content: '';\n    display: inline-block;\n    vertical-align: middle;\n    width: 10px;\n    height: 1px;\n    background: ", ";\n  }\n\n  &::after {\n    content: '';\n    display: inline-block;\n    vertical-align: middle;\n    width: 1px;\n    background: ", ";\n    height: 7px;\n  }\n"], ["\n  color: ", ";\n  font-family: ", ";\n  margin: ",
-    "\n\n  &::before {\n    content: '';\n    display: inline-block;\n    vertical-align: middle;\n    width: 10px;\n    height: 1px;\n    background: ", ";\n  }\n\n  &::after {\n    content: '';\n    display: inline-block;\n    vertical-align: middle;\n    width: 1px;\n    background: ", ";\n    height: 7px;\n  }\n"])), function (props) { return props.theme.schema.linesColor; }, function (props) { return props.theme.typography.code.fontFamily; }, function (_a) {
-    var theme = _a.theme;
-    return theme.typography.direction === 'rtl' ? '0 0 0 10px ' : '0 10px 0 0';
-}, function (props) { return props.theme.schema.linesColor; }, function (props) { return props.theme.schema.linesColor; });
-var WrappedShelfIcon = styled_components.i(fields_layout_templateObject_9 || (fields_layout_templateObject_9 = Object(external_tslib_["__makeTemplateObject"])(["\n  display: inline-block;\n"], ["\n  display: inline-block;\n"])));
-var InnerPropertiesWrap = styled_components.div(fields_layout_templateObject_10 || (fields_layout_templateObject_10 = Object(external_tslib_["__makeTemplateObject"])(["\n  padding: ", ";\n"], ["\n  padding: ",
+var PropertyDetailsCell = styled_components.td(fields_layout_templateObject_7 || (fields_layout_templateObject_7 = Object(external_tslib_["__makeTemplateObject"])(["\n  border-bottom: 1px solid #9fb4be;\n  padding: 10px 0;\n  width: ", ";\n  box-sizing: border-box;\n  tr.expanded & {\n    border-bottom: none;\n  }\n  ", "\n  ", ";\n"], ["\n  border-bottom: 1px solid #9fb4be;\n  padding: 10px 0;\n  width: ", ";\n  box-sizing: border-box;\n  tr.expanded & {\n    border-bottom: none;\n  }\n  ",
+    "\n  ", ";\n"])), function (props) { return props.theme.schema.defaultDetailsWidth; }, media.lessThan('small')(fields_layout_templateObject_6 || (fields_layout_templateObject_6 = Object(external_tslib_["__makeTemplateObject"])(["\n    padding: 0 20px;\n    border-bottom: none;\n    border-left: 1px solid ", ";\n    tr.last > & {\n      border-left: none;\n    }\n  "], ["\n    padding: 0 20px;\n    border-bottom: none;\n    border-left: 1px solid ", ";\n    tr.last > & {\n      border-left: none;\n    }\n  "])), function (props) { return props.theme.schema.linesColor; }), extensionsHook('PropertyDetailsCell'));
+var PropertyBullet = styled_components.span(fields_layout_templateObject_8 || (fields_layout_templateObject_8 = Object(external_tslib_["__makeTemplateObject"])(["\n  color: ", ";\n  font-family: ", ";\n  margin-right: 10px;\n  &::before {\n    content: '';\n    display: inline-block;\n    vertical-align: middle;\n    width: 10px;\n    height: 1px;\n    background: ", ";\n  }\n  &::after {\n    content: '';\n    display: inline-block;\n    vertical-align: middle;\n    width: 1px;\n    background: ", ";\n    height: 7px;\n  }\n"], ["\n  color: ", ";\n  font-family: ", ";\n  margin-right: 10px;\n  &::before {\n    content: '';\n    display: inline-block;\n    vertical-align: middle;\n    width: 10px;\n    height: 1px;\n    background: ", ";\n  }\n  &::after {\n    content: '';\n    display: inline-block;\n    vertical-align: middle;\n    width: 1px;\n    background: ", ";\n    height: 7px;\n  }\n"])), function (props) { return props.theme.schema.linesColor; }, function (props) { return props.theme.typography.code.fontFamily; }, function (props) { return props.theme.schema.linesColor; }, function (props) { return props.theme.schema.linesColor; });
+var InnerPropertiesWrap = styled_components.div(fields_layout_templateObject_9 || (fields_layout_templateObject_9 = Object(external_tslib_["__makeTemplateObject"])(["\n  padding: ", ";\n"], ["\n  padding: ",
     ";\n"])), function (_a) {
     var theme = _a.theme;
     return theme.schema.nestingSpacing;
 });
-var PropertiesTable = styled_components.table(templateObject_13 || (templateObject_13 = Object(external_tslib_["__makeTemplateObject"])(["\n  border-collapse: separate;\n  border-radius: 3px;\n  font-size: ", ";\n\n  border-spacing: 0;\n  width: 100%;\n\n  > tr {\n    vertical-align: middle;\n  }\n\n  ", "\n\n  ", "\n\n  &\n    ", ",\n    &\n    ", "\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", "\n    ", " {\n    margin: ", ";\n    margin-right: 0;\n    background: ", ";\n  }\n\n  &\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", "\n    ", "\n    ", " {\n    background: #ffffff;\n  }\n"], ["\n  border-collapse: separate;\n  border-radius: 3px;\n  font-size: ", ";\n\n  border-spacing: 0;\n  width: 100%;\n\n  > tr {\n    vertical-align: middle;\n  }\n\n  ",
-    "\n\n  ",
-    "\n\n  &\n    ", ",\n    &\n    ", "\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", "\n    ", " {\n    margin: ",
+var PropertiesTable = styled_components.table(templateObject_12 || (templateObject_12 = Object(external_tslib_["__makeTemplateObject"])(["\n  border-collapse: separate;\n  border-radius: 3px;\n  font-size: ", ";\n  border-spacing: 0;\n  width: 100%;\n  > tr {\n    vertical-align: middle;\n  }\n  ", "\n  ", "\n  &\n    ", ",\n    &\n    ", "\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", "\n    ", " {\n    margin: ", ";\n    margin-right: 0;\n    background: ", ";\n  }\n  &\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", "\n    ", "\n    ", " {\n    background: #ffffff;\n  }\n"], ["\n  border-collapse: separate;\n  border-radius: 3px;\n  font-size: ", ";\n  border-spacing: 0;\n  width: 100%;\n  > tr {\n    vertical-align: middle;\n  }\n  ",
+    "\n  ",
+    "\n  &\n    ", ",\n    &\n    ", "\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", "\n    ", " {\n    margin: ",
     ";\n    margin-right: 0;\n    background: ",
-    ";\n  }\n\n  &\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", "\n    ", "\n    ", " {\n    background: #ffffff;\n  }\n"])), function (props) { return props.theme.typography.fontSize; }, media.lessThan('small')(fields_layout_templateObject_11 || (fields_layout_templateObject_11 = Object(external_tslib_["__makeTemplateObject"])(["\n    display: block;\n    > tr, > tbody > tr {\n      display: block;\n    }\n  "], ["\n    display: block;\n    > tr, > tbody > tr {\n      display: block;\n    }\n  "]))), media.lessThan('small', false, ' and (-ms-high-contrast:none)')(templateObject_12 || (templateObject_12 = Object(external_tslib_["__makeTemplateObject"])(["\n    td {\n      float: left;\n      width: 100%;\n    }\n  "], ["\n    td {\n      float: left;\n      width: 100%;\n    }\n  "]))), InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, function (_a) {
+    ";\n  }\n  &\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", ",\n    &\n    ", "\n    ", "\n    ", "\n    ", "\n    ", "\n    ", " {\n    background: #ffffff;\n  }\n"])), function (props) { return props.theme.typography.fontSize; }, media.lessThan('small')(fields_layout_templateObject_10 || (fields_layout_templateObject_10 = Object(external_tslib_["__makeTemplateObject"])(["\n    display: block;\n    > tr, > tbody > tr {\n      display: block;\n    }\n  "], ["\n    display: block;\n    > tr, > tbody > tr {\n      display: block;\n    }\n  "]))), media.lessThan('small', false, ' and (-ms-high-contrast:none)')(fields_layout_templateObject_11 || (fields_layout_templateObject_11 = Object(external_tslib_["__makeTemplateObject"])(["\n    td {\n      float: left;\n      width: 100%;\n    }\n  "], ["\n    td {\n      float: left;\n      width: 100%;\n    }\n  "]))), InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, function (_a) {
     var theme = _a.theme;
     return theme.schema.nestingSpacing;
 }, function (_a) {
     var theme = _a.theme;
     return theme.schema.nestedBackground;
 }, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap, InnerPropertiesWrap);
-var fields_layout_templateObject_1, fields_layout_templateObject_2, fields_layout_templateObject_3, fields_layout_templateObject_4, fields_layout_templateObject_5, fields_layout_templateObject_6, fields_layout_templateObject_7, fields_layout_templateObject_8, fields_layout_templateObject_9, fields_layout_templateObject_10, fields_layout_templateObject_11, templateObject_12, templateObject_13;
+var fields_layout_templateObject_1, fields_layout_templateObject_2, fields_layout_templateObject_3, fields_layout_templateObject_4, fields_layout_templateObject_5, fields_layout_templateObject_6, fields_layout_templateObject_7, fields_layout_templateObject_8, fields_layout_templateObject_9, fields_layout_templateObject_10, fields_layout_templateObject_11, templateObject_12;
 
 // CONCATENATED MODULE: ./src/common-elements/schema.ts
 
@@ -12304,7 +12283,7 @@ var ConstraintItem = styled_components(FieldLabel)(fields_templateObject_12 || (
     var theme = _a.theme;
     return "\n    background-color: " + Object(external_polished_["transparentize"])(0.95, theme.colors.primary.light) + ";\n    color: " + Object(external_polished_["transparentize"])(0.1, theme.colors.primary.main) + ";\n\n    margin: 0 " + theme.spacing.unit + "px;\n    padding: 0 " + theme.spacing.unit + "px;\n    border: 1px solid " + Object(external_polished_["transparentize"])(0.9, theme.colors.primary.main) + ";\n    font-family: " + theme.typography.code.fontFamily + ";\n}";
 }, extensionsHook('ConstraintItem'));
-var ToggleButton = styled_components.button(fields_templateObject_13 || (fields_templateObject_13 = Object(external_tslib_["__makeTemplateObject"])(["\n  background-color: transparent;\n  border: 0;\n  color: ", ";\n  margin-left: ", "px;\n  border-radius: 2px;\n  cursor: pointer;\n  outline-color: ", ";\n  font-size: 12px;\n"], ["\n  background-color: transparent;\n  border: 0;\n  color: ",
+var ToggleButton = styled_components.button(templateObject_13 || (templateObject_13 = Object(external_tslib_["__makeTemplateObject"])(["\n  background-color: transparent;\n  border: 0;\n  color: ", ";\n  margin-left: ", "px;\n  border-radius: 2px;\n  cursor: pointer;\n  outline-color: ", ";\n  font-size: 12px;\n"], ["\n  background-color: transparent;\n  border: 0;\n  color: ",
     ";\n  margin-left: ",
     "px;\n  border-radius: 2px;\n  cursor: pointer;\n  outline-color: ",
     ";\n  font-size: 12px;\n"])), function (_a) {
@@ -12317,7 +12296,7 @@ var ToggleButton = styled_components.button(fields_templateObject_13 || (fields_
     var theme = _a.theme;
     return theme.colors.text.secondary;
 });
-var fields_templateObject_1, fields_templateObject_2, fields_templateObject_3, fields_templateObject_4, fields_templateObject_5, fields_templateObject_6, fields_templateObject_7, fields_templateObject_8, fields_templateObject_9, fields_templateObject_10, fields_templateObject_11, fields_templateObject_12, fields_templateObject_13;
+var fields_templateObject_1, fields_templateObject_2, fields_templateObject_3, fields_templateObject_4, fields_templateObject_5, fields_templateObject_6, fields_templateObject_7, fields_templateObject_8, fields_templateObject_9, fields_templateObject_10, fields_templateObject_11, fields_templateObject_12, templateObject_13;
 
 // CONCATENATED MODULE: ./src/components/ExternalDocumentation/ExternalDocumentation.tsx
 
@@ -14321,7 +14300,9 @@ var SwitchBox_SwitchBox = /** @class */ (function (_super) {
         var _a = this.props, label = _a.label, checked = _a.checked, onClick = _a.onClick;
         return external_react_["createElement"](CustomFlexLayout, null,
             external_react_["createElement"](external_react_switch_default.a, { id: this.id, onChange: onClick, checked: checked, uncheckedIcon: false }),
-            external_react_["createElement"](SwitchBox_Label, { active: checked, htmlFor: this.id }, label));
+            external_react_["createElement"](SwitchBox_Label, { active: checked, htmlFor: this.id, style: {
+                    marginLeft: 10
+                } }, label));
     };
     return SwitchBox;
 }(external_react_["PureComponent"]));
