@@ -20,7 +20,7 @@ const TokenTextField = styled.input`
   padding: 10px 30px 10px 20px;
   border-radius: 4px 0 0 4px;
   background-color: ${props => props.theme.codeSample.backgroundColor};
-  color: ${props => props.theme.codeSample.textColor}
+  color: ${props => props.theme.codeSample.textColor};
   white-space: nowrap;
   align-items: center;
   border: none;

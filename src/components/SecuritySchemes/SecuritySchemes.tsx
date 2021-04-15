@@ -1,4 +1,3 @@
-import { Dictionary } from 'lodash';
 import { observer } from 'mobx-react';
 import * as React from 'react';
 import { TokenGroup } from '..';
@@ -70,28 +69,21 @@ export interface SecurityDefsProps {
   securitySchemes: SecuritySchemesModel;
 }
 
-export interface SecurityDefsState {
-  tokens: Dictionary<string>;
-}
-
 @observer
-export class SecurityDefs extends React.PureComponent<SecurityDefsProps, SecurityDefsState> {
+export class SecurityDefs extends React.PureComponent<SecurityDefsProps> {
   state = {
     tokens: {},
   };
 
   mutateToken = (scheme, id) => {
-    return () => {
-      scheme.setToken(this.state.tokens[id]);
-    };
+    scheme.setToken(this.state.tokens[id]);
+    this.forceUpdate();
   };
 
-  setToken = id => {
-    return token => {
-      const tokens = this.state.tokens;
-      tokens[id] = token;
-      this.setState({ tokens });
-    };
+  setToken = (id, token) => {
+    const tokens = this.state.tokens;
+    tokens[id] = token;
+    this.setState({ tokens });
   };
 
   render() {
@@ -163,8 +155,8 @@ export class SecurityDefs extends React.PureComponent<SecurityDefsProps, Securit
               description={
                 'You can add token here and store it to use in your request calls in this page.'
               }
-              onChange={this.setToken(scheme.sectionId)}
-              onSubmit={this.mutateToken(scheme, scheme.sectionId)}
+              onChange={token => this.setToken(scheme.id, token)}
+              onSubmit={() => this.mutateToken(scheme, scheme.id)}
             />
           </DarkRightPanel>
         </Row>
