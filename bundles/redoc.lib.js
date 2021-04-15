@@ -6777,7 +6777,7 @@ module.exports = require("prismjs/components/prism-swift.js");
 				var addMethods = __webpack_require__(83)
 				var methods = ["add","done","toJS","fromExternalJS","load","dispose","search"]
 				module.exports = function() {
-					var w = new Worker(__webpack_require__.p + "1364f6ab9913381b0c62.worker.js", { name: "[hash].worker.js" })
+					var w = new Worker(__webpack_require__.p + "e61ed2e87d483d7b2309.worker.js", { name: "[hash].worker.js" })
 					addMethods(w, methods)
 					
 					return w
@@ -7938,7 +7938,7 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "2693e32e"));
+                    "a455f0f9"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -12656,7 +12656,6 @@ var Field_Field = /** @class */ (function (_super) {
             }
         };
         _this.onFieldChange = function (e) {
-            console.log('Textfield value is ' + e.target.placeholder + ' - ' + e.target.value);
             _this.props.field.setValue(e.target.value);
         };
         return _this;
@@ -13045,18 +13044,15 @@ var SecuritySchemes_SecurityDefs = /** @class */ (function (_super) {
             tokens: {}
         };
         _this.mutateToken = function (scheme, id) {
-            return function () {
-                scheme.setToken(_this.state.tokens[id]);
-            };
+            scheme.setToken(_this.state.tokens[id]);
+            _this.forceUpdate();
         };
-        _this.setToken = function (id) {
-            return function (token) {
-                var tokens = _this.state.tokens;
-                tokens[id] = token;
-                _this.setState({
-                    tokens: tokens
-                });
-            };
+        _this.setToken = function (id, token) {
+            var tokens = _this.state.tokens;
+            tokens[id] = token;
+            _this.setState({
+                tokens: tokens
+            });
         };
         return _this;
     }
@@ -13122,7 +13118,7 @@ var SecuritySchemes_SecurityDefs = /** @class */ (function (_super) {
                                         scheme.token,
                                         " ")) : scheme.flows ? Object.keys(scheme.flows).map(function (type) { return external_react_["createElement"](SecuritySchemes_OAuthFlow, { key: type, type: type, token: scheme.token, flow: scheme.flows[type] }); }) : null)))),
                 external_react_["createElement"](DarkRightPanel, null,
-                    external_react_["createElement"](TokenGroup_TokenGroup, { title: 'Enter ' + scheme.id, description: 'You can add token here and store it to use in your request calls in this page.', onChange: _this.setToken(scheme.sectionId), onSubmit: _this.mutateToken(scheme, scheme.sectionId) })))); });
+                    external_react_["createElement"](TokenGroup_TokenGroup, { title: 'Enter ' + scheme.id, description: 'You can add token here and store it to use in your request calls in this page.', onChange: function (token) { return _this.setToken(scheme.id, token); }, onSubmit: function () { return _this.mutateToken(scheme, scheme.id); } })))); });
     };
     SecurityDefs = Object(external_tslib_["__decorate"])([
         external_mobx_react_["observer"]
@@ -15352,7 +15348,7 @@ var RedocStandalone_RedocStandalone = /** @class */ (function (_super) {
 
 
 var SaveTokenButton = styled_components(Button)(TokenGroup_templateObject_1 || (TokenGroup_templateObject_1 = Object(external_tslib_["__makeTemplateObject"])(["\n  padding: 10px 30px;\n  border-radius: 0 4px 4px 0;\n  cursor: pointer;\n  text-align: center;\n  outline: none;\n  margin: 0\n  min-width: 60px;\n  max-width: 100px;\n  font-weight: bold;\n  flex: 1 1;\n  order: 2;\n"], ["\n  padding: 10px 30px;\n  border-radius: 0 4px 4px 0;\n  cursor: pointer;\n  text-align: center;\n  outline: none;\n  margin: 0\n  min-width: 60px;\n  max-width: 100px;\n  font-weight: bold;\n  flex: 1 1;\n  order: 2;\n"])));
-var TokenTextField = styled_components.input(TokenGroup_templateObject_2 || (TokenGroup_templateObject_2 = Object(external_tslib_["__makeTemplateObject"])(["\n  padding: 10px 30px 10px 20px;\n  border-radius: 4px 0 0 4px;\n  background-color: ", ";\n  color: ", "\n  white-space: nowrap;\n  align-items: center;\n  border: none;\n  direction: ltr;\n  min-width: 300px;\n  flex: 4 1;\n  order: 1;\n"], ["\n  padding: 10px 30px 10px 20px;\n  border-radius: 4px 0 0 4px;\n  background-color: ", ";\n  color: ", "\n  white-space: nowrap;\n  align-items: center;\n  border: none;\n  direction: ltr;\n  min-width: 300px;\n  flex: 4 1;\n  order: 1;\n"])), function (props) { return props.theme.codeSample.backgroundColor; }, function (props) { return props.theme.codeSample.textColor; });
+var TokenTextField = styled_components.input(TokenGroup_templateObject_2 || (TokenGroup_templateObject_2 = Object(external_tslib_["__makeTemplateObject"])(["\n  padding: 10px 30px 10px 20px;\n  border-radius: 4px 0 0 4px;\n  background-color: ", ";\n  color: ", ";\n  white-space: nowrap;\n  align-items: center;\n  border: none;\n  direction: ltr;\n  min-width: 300px;\n  flex: 4 1;\n  order: 1;\n"], ["\n  padding: 10px 30px 10px 20px;\n  border-radius: 4px 0 0 4px;\n  background-color: ", ";\n  color: ", ";\n  white-space: nowrap;\n  align-items: center;\n  border: none;\n  direction: ltr;\n  min-width: 300px;\n  flex: 4 1;\n  order: 1;\n"])), function (props) { return props.theme.codeSample.backgroundColor; }, function (props) { return props.theme.codeSample.textColor; });
 var TokenGroupContainer = styled_components.div(TokenGroup_templateObject_3 || (TokenGroup_templateObject_3 = Object(external_tslib_["__makeTemplateObject"])(["\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: stretch;\n  align-content: flex-start;\n"], ["\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: stretch;\n  align-content: flex-start;\n"])));
 var TokenGroup_Description = styled_components.p(TokenGroup_templateObject_4 || (TokenGroup_templateObject_4 = Object(external_tslib_["__makeTemplateObject"])(["\n  color: white;\n"], ["\n  color: white;\n"])));
 var TokenGroup_TokenGroup = /** @class */ (function (_super) {
