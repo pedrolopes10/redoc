@@ -45,7 +45,6 @@ export class Field extends React.Component<FieldProps> {
   };
 
   onFieldChange = e => {
-    console.log('Textfield value is ' + e.target.placeholder + ' - ' + e.target.value);
     this.props.field.setValue(e.target.value);
   };
   render() {
@@ -87,7 +86,7 @@ export class Field extends React.Component<FieldProps> {
           <PropertyDetailsCell>
             <FieldDetails {...this.props} />
           </PropertyDetailsCell>
-          {field && field.in === 'path' && (
+          {field && (field.in === 'path' || field.in === 'query') && (
             <td>
               <TextField placeholder={field.name} onChange={this.onFieldChange} />
             </td>

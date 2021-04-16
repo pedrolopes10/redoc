@@ -1,7 +1,7 @@
 /*!
  * ReDoc - OpenAPI/Swagger-generated API Reference Documentation
  * -------------------------------------------------------------
- *   Version: "2.0.0-rc.53-fork-2"
+ *   Version: "2.0.0-rc.53-fork-3"
  *   Repo: https://github.com/Redocly/redoc
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -7933,12 +7933,12 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                         external_react_["createElement"]("pre", null, this.state.error.stack))),
                 external_react_["createElement"]("small", null,
                     " ReDoc Version: ",
-                    "2.0.0-rc.53-fork-2"),
+                    "2.0.0-rc.53-fork-3"),
                 " ",
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "a455f0f9"));
+                    "557d74bd"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -12679,7 +12679,7 @@ var Field_Field = /** @class */ (function (_super) {
                 paramName,
                 external_react_["createElement"](PropertyDetailsCell, null,
                     external_react_["createElement"](FieldDetails_FieldDetails, Object(external_tslib_["__assign"])({}, this.props))),
-                field && field.in === 'path' && external_react_["createElement"]("td", null,
+                field && (field.in === 'path' || field.in === 'query') && external_react_["createElement"]("td", null,
                     external_react_["createElement"](TextField, { placeholder: field.name, onChange: this.onFieldChange }))),
             expanded && withSubSchema && external_react_["createElement"]("tr", { key: field.name + 'inner' },
                 external_react_["createElement"](PropertyCellWithInner, { colSpan: 2 },
