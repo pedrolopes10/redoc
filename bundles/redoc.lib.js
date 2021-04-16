@@ -7938,7 +7938,7 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "557d74bd"));
+                    "29115f4e"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -14546,6 +14546,19 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
         }
         return url;
     };
+    /*
+     * If we have a url like foo/bar/{uuid} uuid will be replaced with what user has typed in.
+     */
+    ConsoleViewer.prototype.addFieldsObject = function (params) {
+        var fields = {};
+        for (var _i = 0, params_2 = params; _i < params_2.length; _i++) {
+            var fieldModel = params_2[_i];
+            if ((fieldModel.in === 'path' || fieldModel.in === 'query') && fieldModel.value.length > 0) {
+                fields[fieldModel.name] = fieldModel.value;
+            }
+        }
+        return fields;
+    };
     ConsoleViewer.prototype.invoke = function (endpoint, body, headers) {
         if (headers === void 0) { headers = {}; }
         return Object(external_tslib_["__awaiter"])(this, void 0, void 0, function () {
@@ -14557,7 +14570,7 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
                         operation = this.props.operation;
                         url = this.addParamsToUrl(endpoint.path, operation.parameters || []);
                         if (endpoint.method.toLocaleLowerCase() === 'get') {
-                            url = url + '?' + qs.stringify(body || '');
+                            url = url + '?' + qs.stringify(body || this.addFieldsObject(operation.parameters || []));
                         }
                         myHeaders = new Headers();
                         for (_i = 0, _a = Object.entries(headers); _i < _a.length; _i++) {

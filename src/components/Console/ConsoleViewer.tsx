@@ -137,13 +137,31 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
 
     return url;
   }
+  
+  /*
+   * If we have a url like foo/bar/{uuid} uuid will be replaced with what user has typed in.
+   */
+  addFieldsObject(params: FieldModel[]) {
+    const fields = {};
+
+    for (const fieldModel of params) {
+      if (
+        (fieldModel.in === 'path' || fieldModel.in === 'query') &&
+        fieldModel.value.length > 0
+      ) {
+        fields[fieldModel.name] = fieldModel.value;
+      }
+    }
+
+    return fields;
+  }
 
   async invoke(endpoint, body, headers = {}) {
     try {
       const { operation } = this.props;
       let url = this.addParamsToUrl(endpoint.path, operation.parameters || []);
       if (endpoint.method.toLocaleLowerCase() === 'get') {
-        url = url + '?' + qs.stringify(body || '');
+        url = url + '?' + qs.stringify(body || this.addFieldsObject(operation.parameters || []));
       }
       const myHeaders = new Headers();
       for (const [key, value] of Object.entries(headers)) {
