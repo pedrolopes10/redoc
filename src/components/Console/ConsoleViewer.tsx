@@ -146,7 +146,7 @@ export class ConsoleViewer extends React.Component<ConsoleViewerProps, ConsoleVi
 
     for (const fieldModel of params) {
       if (
-        (fieldModel.in === 'path' || fieldModel.in === 'query') &&
+        fieldModel && fieldModel.value && (fieldModel.in === 'path' || fieldModel.in === 'query') &&
         fieldModel.value.length > 0
       ) {
         fields[fieldModel.name] = fieldModel.value;

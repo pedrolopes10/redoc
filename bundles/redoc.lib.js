@@ -1,7 +1,7 @@
 /*!
  * ReDoc - OpenAPI/Swagger-generated API Reference Documentation
  * -------------------------------------------------------------
- *   Version: "2.0.0-rc.53-fork-3"
+ *   Version: "2.0.0-rc.53-fork-4"
  *   Repo: https://github.com/Redocly/redoc
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -7933,12 +7933,12 @@ var ErrorBoundary_ErrorBoundary = /** @class */ (function (_super) {
                         external_react_["createElement"]("pre", null, this.state.error.stack))),
                 external_react_["createElement"]("small", null,
                     " ReDoc Version: ",
-                    "2.0.0-rc.53-fork-3"),
+                    "2.0.0-rc.53-fork-4"),
                 " ",
                 external_react_["createElement"]("br", null),
                 external_react_["createElement"]("small", null,
                     " Commit: ",
-                    "29115f4e"));
+                    "ee2a9c25"));
         }
         return external_react_["Children"].only(this.props.children);
     };
@@ -14553,7 +14553,7 @@ var ConsoleViewer_ConsoleViewer = /** @class */ (function (_super) {
         var fields = {};
         for (var _i = 0, params_2 = params; _i < params_2.length; _i++) {
             var fieldModel = params_2[_i];
-            if ((fieldModel.in === 'path' || fieldModel.in === 'query') && fieldModel.value.length > 0) {
+            if (fieldModel && fieldModel.value && (fieldModel.in === 'path' || fieldModel.in === 'query') && fieldModel.value.length > 0) {
                 fields[fieldModel.name] = fieldModel.value;
             }
         }
